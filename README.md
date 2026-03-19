@@ -1,68 +1,36 @@
-# Tar0tscepter Systems Lab
+# Einherjar Endeavor - Re.Match Intake Pipeline
 
-**Live Site:** [https://tar0tscepter.github.io/](https://tar0tscepter.github.io/)
+## 🚀 Phase 1 Deployment: The Abstract Script-Kitten UI & Formspree Integration
 
-## Project Overview
+This repository hosts the frontend intake pipeline for **Re.Match - The Constraint-Based Matching Engine**. 
 
-Tar0tscepter Systems Lab is the digital headquarters for **Re.Match**, an opportunity and resource matching engine designed specifically for individuals navigating the justice system, addiction recovery, and homelessness. 
+The architecture has been radically overhauled from a generic, tutorial driven, more mentally engaging and attractive geometrical rhythmic layout designed to reduce cognitive load while speaking directly to the target demographic in an santza style, pragmatic tone. This is designed to circumvent the barriers individuals in the contemplation stage might face in regards to sustained engagement in objects of focus centered around long-term gratification. 
 
-The core philosophy of this application is constraint-based filtering: utilizing societal "red flags" (felonies, employment gaps, lack of documentation) as mathematical constraints to unlock highly specific, localized grants, employment, and resources.
+### 📝 Changelog (Phase 1)
+- **UI/UX Overhaul:** Ripped out the standard CSS variables and nested divs, which I don't yet understand that much. Put focus on ensuring it doesn't look standard at all, but still looks professional and engaging. Replaced with raw, Courier New monospace typography, staggered geometric stanzas, and brutalist dashed-border asset placeholders, which will be replaced later by a custom \assets\ folder. 
+- **The Pitch Refinement:** Implemented the "Jackpot" pitch orchestration. It visually shifts left and right to pull the reader down the page, converting societal "red flags" into specialized assets.
+- **Form Architecture Simplified:** I'm still trying to get the hang of consistent Git iterating...and everything else. I had accidentally included some contemplative components that weren't relevant - such as the idea of downloading a json to file as part of a workflow - which was a scrapped idea. Removed incoherence. The form now uses pure, native HTML5 validation and sends raw `FormData` via `fetch`.
+- **Formspree Integration:** The intake form now successfully POSTs directly to the operator's secure Formspree inbox (`https://formspree.io/f/xbdzyvjb`), eliminating the need for a backend database.
+- **Dynamic Legal Armor:** Implemented a stark red-offset "Information vs. Advice" disclaimer and a clear "Pay What You Want" voluntary support model.
+- **The Alias Protocol:** Enforced absolute anonymity ZK (Zero-Knowledge) principles on the frontend. No real names requested; users operate via an alphanumeric Alias.
+- **Next Chapter Assessment Compliance** Ensured that I'm compliant with Next Chapter's rubric, and none of the techniques that I've found and implemented are against the rules of the assignment. (HTML, CSS, JS, Readme.md, no external libraries - which I'm still not sure if that includes the methods I'm using for form submission, so I'm doing a few branches using multiple form submission methods...though as I type that, I should probably just pick one that for certain works, because... 
+- **Pragmatic Functionality** The concept that makes my application strong with this website is going to be its actual real world utility and application. I want this website to serve not just a purpose, but a course-altering one; or at least set the ground stage. - I finally made it through enough of the waitlist to get a bed at the shelter downtown with my name on it, starting this weekend. I'll be able to help people there as I try to establish good social habits, make friends, and engage in my community. My primary goal is to figure out a way to help people in custody, but I think at will be accomplished a bit further down the line after I finish this, roll out some of the other projects I'm working on, and start engaging and working with local non-profits that have enough mobility to help me work with people in the jail - for free of course, since that is far more important than getting paid. People in jail are the primary target, since they don't have computer access - which makes it a little bit of a puzzle to solve, but there's plenty of at the very least patchwork solutions out there that could sustain enough to have impact. Even just one critical hit will be a phenomenal win for me; just one life changing dossier.   
+### 🛠️ Remaining Work (Phase 2 & Beyond)
+0. **Form Fields Overlooked** NOTES: Add field for "Felony or Misdemeanor" Add field for "Mental Health Conditions, including Substance Abuse Disorder:" Add field for "Disabled or handicapped" Add field for "School scholarships & grants?* Add field for "Skill training/bootcamps?" Add field for "Employment? What area of work?" Add field for "Describe your work history in as much detail as you want or don't want. What years and what position is enough, you can include company if you want." "Do you want to remain in the same field or enter a different field?" "Are there any items not covered by your health insurance that you need?" "Do you have Medicaid/OregonHealthPlan?" "Do you need a bus pass?" "Gym Membership?"  "Any other free shit you can think of that you want me to see if it exists for your circumstance?" "Sexual orientation" "Spiritual/religious constraints?" Ensure that you state that all fields are optional, and all fields coorelate to benefits, programs, non-profits, scholarships, and grants. If you do not want to respond to a field, type N/A. Reiterate that all information will be used for their report and nothing else. Do a quick check after these are integrated, ensuring that I have covered every possible scholarship & grant qualifier - as that is the deterministic binary for if I have full field coverage or not. 
+1. **Asset Integration:** Replace the dashed geometrical placeholders (`.asset-placeholder`) with the custom, 8-bit/abstract visual assets with their generation back burnered until everything is 100% baseline functional.
+2. **PlatFORM HAHAHA GET IT Iteration** First iteration did Formspree, next is Web3Forms, which is supposedly more secure for my email address; learning at least the most super basic fundamental security practices should be a goal by the final submission, since protecting my information protects their information. That's why I have the anonymity method, though; hopefully the nature of the information I'm gathering to provide this service isn't too compromising. I was going to use a burner email for the form intake...which I should still do, that way it won't matter if people source-scrape then try to phish/crack/spam me. 
+3. **The Infinite Tier Pipeline:** Build out a Google Apps Script endpoint to route submissions directly into a private Google Sheet, bypassing the 50-submission-per-month limit of Formspree and the 200 submission per month on Web3Forms. This is also far more automatable and integratable, since I have Gemini CLI Extensions and VS Code extensions for automating Google Apps Script, Google Workspace, and Google Cloud stuff. No idea how to do any of it yet, but I'll learn.
+4. Add a simple voice button, instead of making it the primary method. The form is a /lot/ more streamlined than my original profile construction I did for myself was (My initial profile was comprised of 100 questions and was intended to extend into another, more robust project in conjunction with the "tar0t draw" as it was called originally - extending into a causality mapping engine. That's way beyond my current timescope, capability and priority right now though. For now, focus on : Website that generates excellent information packets for people.
+5. **A/B Branch Testing:** . Test on myself, using my awareness of my psyche for now. Ask friends and acquaintances, see if members from group are willing to test. At the very least, just get some filled out forms so you can test and iterate the workflow. 
+5. **Anonymous Dossier Dropping/Identified Dossier Delivery** For people who do not wish to share their identity, an option is provided to provide an alphanumberic - I will receive their form just the same, run their dossier just the same, but then I will strip away their identifying information from it and upload it, anonymized to the webpage. 
+6. **Dossier Section** A section for existing dossiers, possibly another html page, possibly an embedded Google Drive page, if that's a thing. 
+7. **Library of Lux** A section containing resources, guides, information, open-source books, tools, etc.
+8. **Tip Jar** I might have to speedrun some of this stuff if I want to get the courses on Alison done by the 20th. 
+9. **Referral Letters** I also need to collect the referral letters people have written for me and find a way to present them to the Next Chapter Admissions. 
+10. ** Solidification** Ensure that everything is 100% up to professional grade standards, so that people using the service as well as myself can feel at least pretty close to as safe as the rest of the internet feels nowadays. Ensure rubric criteria is met. Ensure there is no superfluous code, that way I don't have to explain "Oh yeah, this does literally nothing and is inconsistent and arbitrary," or "I don't remember" 
+11. ** Golden Standard Dossiers ** Examples, ideally based off of myself and other real individuals in the target demographic; worst case scenario, make up some profiles using common constellations of circumstance. 
+---
+Still sober. Got GED. My learning is too sporatic and unfocused. Need structure, discipline, schedule, consistency. Physical training has been faltering. Need to implement a system for everything; integrate to-do-list, calendar, daily morning log, daily nightly log, automate current event and knowledge intake. 
+Goals: Next Chapter. Structured Schedule. College next term. Daily physical training. Daily independent study on Alison, Coursera, TheOdinProject, Open.EDU 
 
-## Technical Requirements (Next Chapter Admissions)
-
-This project was built from the ground up to strictly adhere to the Next Chapter pre-course technical requirements:
-
-*   **Strict Vanilla Constraints:** Built using exclusively pure HTML5, CSS3, and Vanilla JavaScript.
-*   **Zero External Libraries:** No CSS frameworks (like Bootstrap or Tailwind) and no JS libraries (like React or jQuery) were used.
-*   **Responsive Design:** Fully responsive layout that scales appropriately across mobile and desktop environments.
-*   **Separation of Concerns:** Clean architecture utilizing distinct `.html`, `.css`, and `.js` files.
-
-## Features
-
-*   **Re.Match Intake Form:** A structured data collection system designed with cognitive load reduction in mind, enabling users to input their constraints for dossier generation.
-*   **Accessible Design:** High-contrast aesthetic ("Systems Lab" theme) prioritizing readability and clear semantic HTML structure.
-*   **Future Integration:** (Planned) Native web-audio recording for narrative intake.
-
-## Version History
-
-*   **v1.1.0** - Shifted narrative focus from "overcoming weakness" to "leveraging systemic constraints." Adjusted text to confidently present a tool that will help.
-*   **v1.0.0** - Initial deployment. Established "Systems Lab" aesthetic, basic routing, and initial contact form structure.
-
-## Learning Journey & Curriculum
-
-As part of the development of this project, I am actively following open-source curriculums to understand the underlying architecture of the web. Below are the core concepts applied in this project and the corresponding open-source learning materials:
-
-### 1. Document Structure & Semantic HTML
-*The foundation of the site, ensuring accessibility and proper document flow.*
-*   **Curriculum:** [freeCodeCamp - Basic HTML and HTML5](https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5)
-*   **Concepts Applied:** `<!DOCTYPE html>`, `<head>` metadata, viewport scaling for responsiveness, and semantic block elements (`<main>`, `<section>`, `<header>`).
-
-### 2. Form Architecture & Data Collection
-*Building the Re.Match intake system using native web standards.*
-*   **Curriculum:** [MDN Web Docs - HTML Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
-*   **Concepts Applied:** Implicit labeling (nesting `<input>` inside `<label>`), structural grouping (`<fieldset>` and `<legend>`), and native input validation (`type="number"`, `min`, `max`, `required`).
-
-### 3. Data Transmission (Without Backend Servers)
-*Handling form submissions securely without relying on external JavaScript libraries.*
-*   **Curriculum:** [MDN Web Docs - Sending form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)
-*   **Concepts Applied:** Utilizing the `<form action="...">` attribute, `method="POST"`, and `enctype="text/plain"` to interface directly with native client protocols (like `mailto:`).
-
-### 4. Text Formatting & Semantic Emphasis
-*Structuring the psychological copywriting for maximum readability and screen-reader accessibility.*
-*   **Curriculum:** [freeCodeCamp - HTML Text Formatting](https://www.freecodecamp.org/news/html-formatting-tags-how-to-format-text-in-html/)
-*   **Concepts Applied:** Differentiating between stylistic boldness (`<b>`) and semantic importance (`<strong>`), inline styling containers (`<span>`), and structured lists (`<ul>`, `<ol>`, `<li>`).
-
-### 5. Documentation & Markdown
-*Creating this README and documenting the project lifecycle.*
-*   **Curriculum:** [GitHub Docs - Mastering Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-*   **Concepts Applied:** Version history tracking, header formatting, and hyperlink integration.
-
-## Author
-
-**Shane (tar0t)**
-*In pursuit of systematic methods to help people.*
-
-
-**Learning progression**
-*   **v1.1.0** - Started using Codex and Gemini CLI for research and studying. Have an independent curriculum of open source materials for every component I work through.   
-*   **v1.0.0** - Installed VS Code for the first time. Installed GitHub for the first time. Learned how to create the files, edit them, preview, and basic GitHub Push.
+Worries: I don't know how good I'm doing, my documentation and consistency aren't good, my progression isn't where I want it to be, I stopped logging as I learn. I'm going to have to recap and study hard for the interview if my website passes the assessment, but I was going to do that anyway. Readme should probably follow a consistent progression in the future - Again, I really need a systematic method for everything. 
