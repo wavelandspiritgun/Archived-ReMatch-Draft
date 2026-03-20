@@ -76,26 +76,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
-        const apiURL = form.action;
+        // --- DUAL TRANSMISSION PROTOCOL ---
+        // 1. Primary: Internal Cloudflare D1 API
+        // 2. Secondary: External FormSubmit.co (Decentralized Backup)
+        
+        const primaryEndpoint = "/api/submit";
+        const secondaryEndpoint = "https://formsubmit.co/ajax/EinherjarEndeavorsReMatch@proton.me";
 
         try {
-            const response = await fetch(apiURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            });
+            // Fire both simultaneously for maximum redundancy
+            const [primaryResponse, secondaryResponse] = await Promise.allSettled([
+                fetch(primaryEndpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: json
+                }),
+                fetch(secondaryEndpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: json
+                })
+            ]);
 
-            const result = await response.json();
+            // We consider the mission a success if our Primary (D1) or Secondary (Backup) hits.
+            // But we prioritize the result of the Primary for UI feedback.
+            
+            let success = false;
+            if (primaryResponse.status === 'fulfilled' && primaryResponse.value.ok) {
+                success = true;
+            } else if (secondaryResponse.status === 'fulfilled' && secondaryResponse.value.ok) {
+                // Failover success
+                console.warn("Primary D1 failed, but Secondary backup succeeded.");
+                success = true;
+            }
 
-            if (response.ok) {
+            if (success) {
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
             } else {
-                console.log("Transmission Error:", result);
-                alert("Problem transmitting: " + (result.message || "Please try again."));
+                const errorData = primaryResponse.status === 'fulfilled' ? await primaryResponse.value.json() : { message: "Network failure" };
+                console.log("Transmission Error:", errorData);
+                alert("Problem transmitting: " + (errorData.message || "Please try again."));
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').innerText = originalText;
             }
