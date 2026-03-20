@@ -90,11 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const result = await response.json();
 
-            if (response.status === 200) {
+            if (response.ok) {
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
             } else {
-                console.log("Web3Forms Error:", result);
+                console.log("Transmission Error:", result);
                 alert("Problem transmitting: " + (result.message || "Please try again."));
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').innerText = originalText;
