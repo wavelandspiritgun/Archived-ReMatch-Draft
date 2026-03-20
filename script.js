@@ -1,12 +1,10 @@
 /* 
    Re.Match - The Constraint-Based Matching Engine
-   Simplified Javascript Logic
+   Simplified FormSubmit Logic for GitHub Pages
 */
 
-// Wait for the HTML to fully load before running this code
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Grab all the pieces of the HTML we need to interact with
     const form = document.getElementById('intake-form');
     const submitBtn = document.getElementById('submit-btn');
     const successMessage = document.getElementById('success-message');
@@ -19,38 +17,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const prefAnonBtn = document.getElementById('pref-anon');
     const contactInfoBox = document.getElementById('contact-info-box');
 
-    // 1.5 Safety Exit Logic
+    // Safety Exit Logic (ESC Key)
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
-            // Wipe the form
             form.reset();
-            // Redirect to weather
             window.location.href = 'https://www.google.com/search?q=weather';
         }
     });
 
-    // 2. The Logic to show/hide the "Please describe the barriers" box
+    // Toggle Barrier Details
     function checkBarrierStatus() {
-        if (barrierYesBtn.checked === true) {
-            // If "Yes" is checked, remove the 'hidden' CSS class to show the box
+        if (barrierYesBtn && barrierYesBtn.checked) {
             barrierDetailsBox.classList.remove('hidden');
-        } else {
-            // If "No" is checked, add the 'hidden' CSS class back to hide it
+        } else if (barrierDetailsBox) {
             barrierDetailsBox.classList.add('hidden');
         }
     }
 
-    // Tell the radio buttons to run the function above whenever they are clicked
     if (barrierYesBtn && barrierNoBtn) {
         barrierYesBtn.addEventListener('change', checkBarrierStatus);
         barrierNoBtn.addEventListener('change', checkBarrierStatus);
     }
 
-    // 2.5 Contact Info Logic
+    // Toggle Contact Info
     function checkContactPref() {
-        if (prefEmailBtn.checked === true) {
+        if (prefEmailBtn && prefEmailBtn.checked) {
             contactInfoBox.classList.remove('hidden');
-        } else {
+        } else if (contactInfoBox) {
             contactInfoBox.classList.add('hidden');
         }
     }
@@ -60,73 +53,48 @@ document.addEventListener('DOMContentLoaded', function() {
         prefAnonBtn.addEventListener('change', checkContactPref);
     }
 
-    // 3. The Logic for when the user clicks "Send Secure Intake Form"
+    // Form Submission (Primary: FormSubmit.co)
     form.addEventListener('submit', async function(event) {
-        
-        // Stops the browser from refreshing the page
         event.preventDefault();
         
-        // Change the button so they can't click it twice
         submitBtn.disabled = true;
         const originalText = submitBtn.querySelector('.btn-text').innerText;
         submitBtn.querySelector('.btn-text').innerText = "Transmitting...";
 
-        // Gather all the data
         const formData = new FormData(form);
         const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-
-        // --- DUAL TRANSMISSION PROTOCOL ---
-        // 1. Primary: Internal Cloudflare D1 API
-        // 2. Secondary: External FormSubmit.co (Decentralized Backup)
         
-        const primaryEndpoint = "/api/submit";
-        const secondaryEndpoint = "https://formsubmit.co/ajax/EinherjarEndeavorsReMatch@proton.me";
+        // FormSubmit AJAX Endpoint
+        const endpoint = "https://formsubmit.co/ajax/EinherjarEndeavorsReMatch@proton.me";
 
         try {
-            // Fire both simultaneously for maximum redundancy
-            const [primaryResponse, secondaryResponse] = await Promise.allSettled([
-                fetch(primaryEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: json
-                }),
-                fetch(secondaryEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: json
-                })
-            ]);
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(object)
+            });
 
-            // We consider the mission a success if our Primary (D1) or Secondary (Backup) hits.
-            // But we prioritize the result of the Primary for UI feedback.
-            
-            let success = false;
-            if (primaryResponse.status === 'fulfilled' && primaryResponse.value.ok) {
-                success = true;
-            } else if (secondaryResponse.status === 'fulfilled' && secondaryResponse.value.ok) {
-                // Failover success
-                console.warn("Primary D1 failed, but Secondary backup succeeded.");
-                success = true;
-            }
-
-            if (success) {
+            if (response.ok) {
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
+                // Scroll to top to ensure they see the success message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                const errorData = primaryResponse.status === 'fulfilled' ? await primaryResponse.value.json() : { message: "Network failure" };
-                console.log("Transmission Error:", errorData);
-                alert("Problem transmitting: " + (errorData.message || "Please try again."));
+                const result = await response.json();
+                console.error("Transmission Error:", result);
+                alert("Problem transmitting: " + (result.message || "Please check your connection and try again."));
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').innerText = originalText;
             }
 
         } catch (error) {
-            console.error("Transmission error:", error);
-            alert("Connection error. Check your internet.");
+            console.error("Network error:", error);
+            alert("Connection error. Ensure your browser allows cross-site requests.");
             submitBtn.disabled = false;
             submitBtn.querySelector('.btn-text').innerText = originalText;
         }
     });
-
 });
