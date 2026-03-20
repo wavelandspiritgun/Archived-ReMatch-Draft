@@ -73,22 +73,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Gather all the data
         const formData = new FormData(form);
-        const formspreeEmailURL = form.action;
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const apiURL = form.action;
 
         try {
-            const response = await fetch(formspreeEmailURL, {
+            const response = await fetch(apiURL, {
                 method: 'POST',
-                body: formData,
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                }
+                },
+                body: json
             });
 
-            if (response.ok === true) {
+            const result = await response.json();
+
+            if (response.status === 200) {
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
             } else {
-                alert("Problem transmitting. Please try again.");
+                console.log("Web3Forms Error:", result);
+                alert("Problem transmitting: " + (result.message || "Please try again."));
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').innerText = originalText;
             }

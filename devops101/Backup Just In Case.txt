@@ -1,0 +1,742 @@
+================================================================================
+FILE: index.html
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re.Match - Intake</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-lines"></div>
+
+<!-- SAFETY EXIT SIGN -->
+<div class="safety-exit-sign">
+    <span class="red-text">[ ESCAPE ]</span> = EMERGENCY EXIT<br>
+    <span class="hint-text">Clears form & redirects to weather.</span><br>
+    <span class="hint-text" style="font-size: 0.6rem; opacity: 0.8;">For those in unsafe situations, such as fleeing Domestic Violence.</span>
+</div>
+
+<div class="main-container">
+
+    <!-- HEADER: The orchestrated pitch -->
+    <header class="psychedelic-header">
+        <div class="logo-cluster">
+            <div class="asset-placeholder abstract-shape-1"></div>
+            <h1>Re.<span class="blue-text">Match</span></h1>
+        </div>
+        
+        <div class="pitch-orchestration">
+            <div class="pitch-stanza right-shift">
+                Life reduced to sulfur, trash, and ash? <br>
+                <span class="highlight glitch-text">Jackpot</span>. Let's run it back.
+            </div>
+            
+            <div class="asset-placeholder tiny-triangle"></div>
+            
+            <div class="pitch-stanza left-shift">
+                Let's find the materials to make you the <br>
+                <em>architect of your sovereignty</em><br>
+                instead of your own destruction.
+            </div>
+            
+            <div class="pitch-stanza center-shift">
+                We take the "red flags" coloring your past <br>
+                and use them as <strong>strengths</strong>.
+            </div>
+
+            <div class="asset-placeholder glitch-box"></div>
+            
+            <div class="pitch-stanza dual-border">
+                Instead of swimming upstream, we use the current.<br>
+                Embrace your circumstance; flow with the current.
+            </div>
+
+            <div class="pitch-stanza mid-left">
+                Re.Match converts your most ruinous circumstances—
+            </div>
+
+            <div class="pitch-stanza mid-right">
+                criminal records, employment gaps, survival mode—
+            </div>
+
+            <div class="pitch-stanza left-shift">
+                ...into a system designed to unlock —<br>
+                highly specific, localized opportunities and resources.
+            </div>
+
+            <div class="pitch-stanza massive">
+                Give us the raw data.<br>
+                <span class="blue-text">We give you the blueprint.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- DISCLAIMER BOX: Abstract legal armor -->
+    <div class="disclaimer-box offset-border-red">
+        <div class="asset-placeholder warning-icon"></div>
+        <p class="red-text"><strong>Not Legal Advice. Not Medical Advice.</strong></p>
+        <p>I am a Justice-Involved Individual, not a lawyer or doctor. This is for educational matching only.</p>
+        <p><strong>Privacy:</strong> We don't sell data or report to probation. Do not use your real name. Use an Alias.</p>
+        <p><strong>Support:</strong> Pay-what-you-want-if-you-want-when-you-want. This is a voluntary payment for services rendered, not a tax-deductible donation.</p>
+    </div>
+
+    <!-- EMAIL LINK -->
+    <div class="email-box offset-border-blue">
+        <p>Overwhelmed? Chaos is loud.</p>
+        <a href="mailto:tarotscepter@proton.me?subject=Re.Match%20Intake" class="email-btn">Direct Email - Speak Your Mind [ Email Me Directly ]</a>
+    </div>
+
+    <!-- THE FORM -->
+    <form id="intake-form" action="https://formspree.io/f/xbdzyvjb" method="POST">
+        
+        <div class="form-section abstract-border-left">
+            <div class="asset-placeholder section-icon"></div>
+            <h2>Part 1: Identity & Demographics</h2>
+            
+            <div class="instruction-box">
+                <p class="hint-text highlight">NOTE: All fields are optional. They correlate directly to benefits, programs, non-profits, scholarships, and grants. If you do not want to respond, type "N/A". All data is used solely for your dossier report.</p>
+            </div>
+
+            <label for="alias">Alias / Codeword</label>
+            <p class="hint-text">A ghost in the machine (e.g., "omega44").</p>
+            <input type="text" name="alias" id="alias" required>
+
+            <label for="location">Location</label>
+            <p class="hint-text">City, State, and ZIP. Coordinates for localized extraction.</p>
+            <input type="text" name="location" id="location" required>
+
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age">
+
+            <label for="gender">Gender</label>
+            <input type="text" name="gender" id="gender">
+
+            <label for="sexual_orientation">Sexual Orientation</label>
+            <p class="hint-text">LGBTQ+ specific grants are highly localized.</p>
+            <input type="text" name="sexual_orientation" id="sexual_orientation">
+
+            <label for="ethnicity">Ethnicity / Race</label>
+            <p class="hint-text">Includes Tribal Affiliation (crucial for specific BIA grants).</p>
+            <input type="text" name="ethnicity" id="ethnicity">
+
+            <label for="spiritual_constraints">Spiritual / Religious Constraints</label>
+            <p class="hint-text">Many non-profits are faith-based; does this matter to you?</p>
+            <input type="text" name="spiritual_constraints" id="spiritual_constraints">
+
+            <label for="volunteer_work">Volunteer / Community Service</label>
+            <p class="hint-text">Have you ever served your community? This is a high-value asset for many grants.</p>
+            <textarea name="volunteer_work" id="volunteer_work"></textarea>
+
+            <label for="veteranStatus">Veteran Status</label>
+            <input type="text" name="veteranStatus" id="veteranStatus">
+
+            <label for="first_gen_student">First-Generation Student?</label>
+            <p class="hint-text">Were you the first in your family to attend college?</p>
+            <input type="text" name="first_gen_student" id="first_gen_student">
+
+            <label for="foster_care">Foster Care History?</label>
+            <p class="hint-text">Former foster youth have access to specific tuition waivers.</p>
+            <input type="text" name="foster_care" id="foster_care">
+
+            <label for="single_parent">Single Parent Status?</label>
+            <p class="hint-text">Programs exist specifically for head-of-household parents.</p>
+            <input type="text" name="single_parent" id="single_parent">
+
+            <label for="documents">Documentation</label>
+            <p class="hint-text">Do you hold physical copies of your ID, SSN, or Birth Cert?</p>
+            <input type="text" name="documents" id="documents" placeholder="Yes, No, or Some">
+
+            <label for="supervisionStatus">Supervision</label>
+            <p class="hint-text">Are you currently tethered to Probation or Parole?</p>
+            <input type="text" name="supervisionStatus" id="supervisionStatus">
+
+            <label>Criminal History Barriers</label>
+            <p class="hint-text">Felony or Misdemeanor? Violent or registry flags? Own it here.</p>
+            <div class="radio-options">
+                <input type="radio" name="has_barriers" value="Yes" id="barrier-yes"> <label for="barrier-yes" style="display:inline; text-transform:none;">Yes</label>
+                <input type="radio" name="has_barriers" value="No" id="barrier-no"> <label for="barrier-no" style="display:inline; text-transform:none;">No</label>
+            </div>
+            
+            <div id="barrier-details-box" class="hidden abstract-indent">
+                <label for="barrier_details">Define the barriers</label>
+                <p class="hint-text">Specifics (e.g. "Misdemeanor 2018") help us find Fair Chance pipelines.</p>
+                <textarea name="barrier_details" id="barrier_details"></textarea>
+            </div>
+
+            <label for="parental_incarceration">Parental Incarceration History</label>
+            <p class="hint-text">Did a parent serve time? This unlocks specific legacy scholarships.</p>
+            <input type="text" name="parental_incarceration" id="parental_incarceration">
+
+            <label for="dv_history">Domestic Violence (DV) History</label>
+            <p class="hint-text">Survivor status grants priority access to specialized re-housing. (Use ESC to exit if unsafe).</p>
+            <input type="text" name="dv_history" id="dv_history">
+        </div>
+
+        <div class="form-section abstract-border-right">
+            <div class="asset-placeholder target-icon"></div>
+            <h2>Part 2: Target Trajectories</h2>
+            
+            <label for="mental_health">Mental Health & Substance Use</label>
+            <p class="hint-text">Conditions, including Substance Abuse Disorder. This unlocks dual-diagnosis support.</p>
+            <textarea name="mental_health" id="mental_health"></textarea>
+
+            <label for="disability_status">Disabled or Handicapped</label>
+            <p class="hint-text">Physical or cognitive constraints that require accommodation.</p>
+            <input type="text" name="disability_status" id="disability_status">
+
+            <label for="work_history">Employment & Work History</label>
+            <p class="hint-text">Current area of work and a detailed history (years, position, company optional).</p>
+            <textarea name="work_history" id="work_history"></textarea>
+
+            <label for="field_trajectory">Field Trajectory</label>
+            <p class="hint-text">Do you want to remain in the same field or enter a different field?</p>
+            <input type="text" name="field_trajectory" id="field_trajectory">
+
+            <label for="education_training">Education & Training</label>
+            <p class="hint-text">GED? Degrees? Skill training/bootcamps? <br>
+            <strong>TIP:</strong> Pursuits like <em>Google Career Certificates</em> or <em>IBM SkillsBuild</em> take 3-6 months and "unlock" entry-level IT, Project Management, and Data roles without a 4-year degree.</p>
+            <textarea name="education_training" id="education_training"></textarea>
+
+            <label for="scholarship_interest">School Scholarships & Grants?*</label>
+            <p class="hint-text">Are you specifically looking for academic funding?</p>
+            <input type="text" name="scholarship_interest" id="scholarship_interest">
+
+            <label for="housing">Housing & Chronicity</label>
+            <p class="hint-text">Shelter? Rent survival? Note if you've been homeless for 1yr+ or 4 times in 3yrs (unlocks "Chronic" vouchers).</p>
+            <textarea name="housing" id="housing"></textarea>
+
+            <label for="medical">Medical & Treatment</label>
+            <p class="hint-text">Recovery support or clinical navigation?</p>
+            <textarea name="medical" id="medical"></textarea>
+            
+            <label for="legal">Legal</label>
+            <p class="hint-text">Expungement? Compliance entanglements?</p>
+            <textarea name="legal" id="legal"></textarea>
+
+            <label for="other">The Void</label>
+            <p class="hint-text">Anything else. Spill it.</p>
+            <textarea name="other" id="other"></textarea>
+        </div>
+
+        <div class="form-section abstract-border-left">
+            <div class="asset-placeholder gear-icon"></div>
+            <h2>Part 3: Constraints & Capabilities</h2>
+
+            <label for="hardware_transport">Hardware & Transport</label>
+            <p class="hint-text">Phone? Laptop? Vehicle? Do you need a bus pass?</p>
+            <textarea name="hardware_transport" id="hardware_transport"></textarea>
+
+            <label for="address_internet">Mailing Address & Internet Access</label>
+            <p class="hint-text">Do you have a reliable place for mail? Do you have a data plan for your phone?</p>
+            <textarea name="address_internet" id="address_internet"></textarea>
+
+            <label for="health_insurance">Health Insurance Status</label>
+            <p class="hint-text">Medicaid/OregonHealthPlan? Any items NOT covered that you need?</p>
+            <textarea name="health_insurance" id="health_insurance"></textarea>
+
+            <label for="gym_membership">Gym Membership?</label>
+            <p class="hint-text">Physical health is a pillar of sovereignty.</p>
+            <input type="text" name="gym_membership" id="gym_membership">
+
+            <label for="incomeMode">Income Status</label>
+            <p class="hint-text">"Survival Mode" (need cash today) or "Reforge Mode" (stable enough to train)?</p>
+            <input type="text" name="incomeMode" id="incomeMode">
+
+            <label for="stays_on_track">The Anchor</label>
+            <p class="hint-text">What keeps you on track? (Meditation, Martial Arts, Exercise, Dance, Rock Climbing, Hiking). <br>
+            <strong>TIP:</strong> These can often be covered by <em>Flex Funds</em> (State Insurance budget) if your PCP or Mental Health provider signs off on them as medically justifiable.</p>
+            <textarea name="stays_on_track" id="stays_on_track"></textarea>
+
+            <label for="trips_up">The Trap</label>
+            <p class="hint-text">What is the exact mechanism that usually trips you up?</p>
+            <textarea name="trips_up" id="trips_up"></textarea>
+
+            <label for="dignity_maintenance">Dignity & Maintenance</label>
+            <p class="hint-text">Do you need secure storage for gear? Laundry vouchers? Interview clothing/boots? Hygiene kits?</p>
+            <textarea name="dignity_maintenance" id="dignity_maintenance"></textarea>
+
+            <label for="other_resources">Other Resources</label>
+            <p class="hint-text">Any other "free shit" you want me to look for?</p>
+            <textarea name="other_resources" id="other_resources"></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" id="submit-btn">
+            <span class="btn-text">Initiate Sequence</span>
+            <div class="asset-placeholder btn-icon"></div>
+        </button>
+    </form>
+
+    <div id="success-message" class="hidden success-box offset-border-green">
+        <div class="asset-placeholder success-icon"></div>
+        <h2>Transmission Received.</h2>
+        <p>The signal hit the operator.</p>
+        <p>Remember your Alias. Your blueprint will emerge soon.</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+================================================================================
+FILE: style.css
+================================================================================
+/* 
+   Re.Match - The Constraint-Based Matching Engine
+   Hallucinogenic / Hacker Geometry Main Stylesheet
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #050505;
+    color: #e0e0e0;
+    line-height: 1.8;
+    padding: 5vw;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.05) 0%, transparent 20%);
+    overflow-x: hidden;
+}
+
+/* Abstract Grid Background */
+.grid-lines {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Safety Exit Sign */
+.safety-exit-sign {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: 1px dashed #ef4444;
+    background: rgba(5, 5, 5, 0.8);
+    font-size: 0.7rem;
+    z-index: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+.main-container {
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Instruction Box for highlights */
+.instruction-box {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 2px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Header & Typography */
+.psychedelic-header {
+    margin-bottom: 4rem;
+}
+
+.logo-cluster {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    border-left: 5px solid #3b82f6;
+    padding-left: 15px;
+    text-shadow: 2px 2px 0px rgba(239, 68, 68, 0.5);
+}
+
+.blue-text { color: #3b82f6; }
+.red-text { color: #ef4444; }
+
+/* The Rhythmic Pitch */
+.pitch-orchestration {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pitch-stanza {
+    font-size: 1.15rem;
+    color: #b0b0b0;
+}
+
+.right-shift { 
+    margin-left: 15%; 
+    border-right: 2px solid #3b82f6; 
+    padding-right: 15px; 
+    text-align: right; 
+}
+.left-shift { 
+    margin-right: 15%; 
+    border-left: 2px solid #ef4444; 
+    padding-left: 15px; 
+}
+.mid-left {
+    margin-left: 10%;
+    margin-right: 20%;
+    border-left: 2px solid #3b82f6;
+    padding-left: 15px;
+    text-align: left;
+}
+.mid-right {
+    margin-left: 20%;
+    margin-right: 10%;
+    border-right: 2px solid #ef4444;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.dual-border {
+    margin: 2rem 10%;
+    border-left: 2px solid #3b82f6;
+    border-right: 2px solid #ef4444;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.center-shift { 
+    text-align: center; 
+    font-style: italic; 
+    opacity: 0.9; 
+    color: #fff;
+    margin: 1rem 0;
+}
+.massive { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    text-align: center; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: #fff; 
+    margin-top: 2rem;
+    border-top: 1px dashed #444;
+    padding-top: 2rem;
+}
+
+.highlight { 
+    background-color: rgba(59, 130, 246, 0.2); 
+    padding: 2px 5px; 
+    color: #fff;
+}
+
+.edge-push {
+    margin-left: 5%;
+    border-right: none;
+    border-left: 1px dotted #555;
+    text-align: left;
+}
+
+/* Glitch Shiver Effect */
+.glitch-text {
+    position: relative;
+    color: #fff;
+    animation: shiver 0.2s infinite alternate;
+}
+
+@keyframes shiver {
+    0% { transform: translate(1px, 1px); text-shadow: 2px 0 #ef4444; }
+    25% { transform: translate(-1px, -1px); text-shadow: -2px 0 #3b82f6; }
+    50% { transform: translate(-1px, 1px); text-shadow: 1px 1px #ef4444; }
+    75% { transform: translate(1px, -1px); text-shadow: -1px -1px #3b82f6; }
+    100% { transform: translate(1px, 1px); text-shadow: 2px 0 #ef4444; }
+}
+
+/* Abstract Image Asset Placeholders */
+.asset-placeholder {
+    background: rgba(255,255,255,0.03);
+    position: relative;
+    border: 1px dashed #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.asset-placeholder::after {
+    content: '[IMG]';
+    font-size: 0.6rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.abstract-shape-1 { width: 40px; height: 40px; border-radius: 5px; transform: rotate(15deg); }
+.tiny-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); width: 30px; height: 25px; margin: 0 auto; }
+.glitch-box { width: 60px; height: 15px; margin-left: 20%; background: repeating-linear-gradient(90deg, #3b82f6, #3b82f6 2px, transparent 2px, transparent 4px); border: none; }
+.warning-icon { width: 30px; height: 30px; border-radius: 50%; float: left; margin-right: 15px; margin-top: 5px; border-color: #ef4444; }
+.section-icon, .target-icon, .gear-icon { width: 20px; height: 20px; position: absolute; top: -10px; left: -10px; background: #050505; }
+.btn-icon { width: 20px; height: 20px; border: none; background: #fff; border-radius: 50%; display: inline-block; margin-left: 15px; vertical-align: middle; }
+
+/* Disclaimer & Email Boxes */
+.offset-border-red {
+    margin: 4rem 0;
+    padding: 2rem;
+    position: relative;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(239,68,68,0.02) 10px, rgba(239,68,68,0.02) 20px);
+    box-shadow: 6px 6px 0px rgba(239, 68, 68, 0.4);
+    border: 1px solid #ef4444;
+}
+
+.offset-border-blue {
+    margin: 3rem 0;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #3b82f6;
+    box-shadow: -6px 6px 0px rgba(59, 130, 246, 0.3);
+}
+
+.email-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.email-btn:hover {
+    background: #3b82f6;
+    color: #050505;
+    transform: translate(2px, -2px);
+    box-shadow: -4px 4px 0px rgba(255,255,255,0.2);
+}
+
+/* Forms */
+.form-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    position: relative;
+    background: rgba(255,255,255,0.02);
+}
+
+.abstract-border-left { border-left: 3px solid #555; }
+.abstract-border-right { border-right: 3px solid #555; text-align: right; }
+.abstract-border-right input, .abstract-border-right textarea { text-align: right; }
+
+h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #444;
+    color: #fff;
+    padding: 10px 0;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #3b82f6;
+}
+textarea {
+    min-height: 50px;
+    resize: vertical;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #bbb;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hint-text {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.radio-options {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #aaa;
+}
+.radio-options input { margin: 0 5px 0 15px; }
+
+.abstract-indent {
+    padding-left: 20px;
+    border-left: 1px dashed #3b82f6;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+button[type="submit"]:hover:not(:disabled) {
+    background: #fff;
+    color: #050505;
+}
+button[type="submit"]:hover:not(:disabled) .btn-icon {
+    background: #050505;
+}
+button[type="submit"]:disabled {
+    border-color: #444;
+    color: #444;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+}
+button[type="submit"]:disabled .btn-icon {
+    background: transparent;
+    opacity: 0.3;
+}
+
+/* Success Message */
+.success-box {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(16, 185, 129, 0.05);
+}
+.offset-border-green {
+    border: 1px solid #10b981;
+    box-shadow: -8px -8px 0px rgba(16, 185, 129, 0.2);
+}
+.success-icon {
+    width: 40px; height: 40px; border-radius: 50%; border-color: #10b981; margin: 0 auto 1.5rem auto;
+}
+
+.hidden { display: none !important; }
+
+================================================================================
+FILE: script.js
+================================================================================
+/* 
+   Re.Match - The Constraint-Based Matching Engine
+   Simplified JavaScript Logic
+*/
+
+// Wait for the HTML to fully load before running this code
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Grab all the pieces of the HTML we need to interact with
+    const form = document.getElementById('intake-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMessage = document.getElementById('success-message');
+    
+    const barrierYesBtn = document.getElementById('barrier-yes');
+    const barrierNoBtn = document.getElementById('barrier-no');
+    const barrierDetailsBox = document.getElementById('barrier-details-box');
+
+    // 1.5 Safety Exit Logic
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            // Wipe the form
+            form.reset();
+            // Redirect to weather
+            window.location.href = 'https://www.google.com/search?q=weather';
+        }
+    });
+
+    // 2. The Logic to show/hide the "Please describe the barriers" box
+    function checkBarrierStatus() {
+        if (barrierYesBtn.checked === true) {
+            // If "Yes" is checked, remove the 'hidden' CSS class to show the box
+            barrierDetailsBox.classList.remove('hidden');
+        } else {
+            // If "No" is checked, add the 'hidden' CSS class back to hide it
+            barrierDetailsBox.classList.add('hidden');
+        }
+    }
+
+    // Tell the radio buttons to run the function above whenever they are clicked
+    if (barrierYesBtn && barrierNoBtn) {
+        barrierYesBtn.addEventListener('change', checkBarrierStatus);
+        barrierNoBtn.addEventListener('change', checkBarrierStatus);
+    }
+
+    // 3. The Logic for when the user clicks "Send Secure Intake Form"
+    form.addEventListener('submit', async function(event) {
+        
+        // Stops the browser from refreshing the page
+        event.preventDefault();
+        
+        // Change the button so they can't click it twice
+        submitBtn.disabled = true;
+        const originalText = submitBtn.querySelector('.btn-text').innerText;
+        submitBtn.querySelector('.btn-text').innerText = "Transmitting...";
+
+        // Gather all the data
+        const formData = new FormData(form);
+        const formspreeEmailURL = form.action;
+
+        try {
+            const response = await fetch(formspreeEmailURL, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok === true) {
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            } else {
+                alert("Problem transmitting. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.btn-text').innerText = originalText;
+            }
+
+        } catch (error) {
+            console.error("Transmission error:", error);
+            alert("Connection error. Check your internet.");
+            submitBtn.disabled = false;
+            submitBtn.querySelector('.btn-text').innerText = originalText;
+        }
+    });
+
+});
