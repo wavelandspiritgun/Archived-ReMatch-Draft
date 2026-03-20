@@ -33,11 +33,34 @@ body {
     z-index: -1;
 }
 
+/* Safety Exit Sign */
+.safety-exit-sign {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: 1px dashed #ef4444;
+    background: rgba(5, 5, 5, 0.8);
+    font-size: 0.7rem;
+    z-index: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
 .main-container {
     max-width: 650px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+}
+
+/* Instruction Box for highlights */
+.instruction-box {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 2px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
 }
 
 /* Header & Typography */
@@ -87,6 +110,29 @@ h1 {
     border-left: 2px solid #ef4444; 
     padding-left: 15px; 
 }
+.mid-left {
+    margin-left: 10%;
+    margin-right: 20%;
+    border-left: 2px solid #3b82f6;
+    padding-left: 15px;
+    text-align: left;
+}
+.mid-right {
+    margin-left: 20%;
+    margin-right: 10%;
+    border-right: 2px solid #ef4444;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.dual-border {
+    margin: 2rem 10%;
+    border-left: 2px solid #3b82f6;
+    border-right: 2px solid #ef4444;
+    padding: 0 20px;
+    text-align: center;
+}
+
 .center-shift { 
     text-align: center; 
     font-style: italic; 
@@ -117,6 +163,21 @@ h1 {
     border-right: none;
     border-left: 1px dotted #555;
     text-align: left;
+}
+
+/* Glitch Shiver Effect */
+.glitch-text {
+    position: relative;
+    color: #fff;
+    animation: shiver 0.2s infinite alternate;
+}
+
+@keyframes shiver {
+    0% { transform: translate(1px, 1px); text-shadow: 2px 0 #ef4444; }
+    25% { transform: translate(-1px, -1px); text-shadow: -2px 0 #3b82f6; }
+    50% { transform: translate(-1px, 1px); text-shadow: 1px 1px #ef4444; }
+    75% { transform: translate(1px, -1px); text-shadow: -1px -1px #3b82f6; }
+    100% { transform: translate(1px, 1px); text-shadow: 2px 0 #ef4444; }
 }
 
 /* Abstract Image Asset Placeholders */
@@ -267,20 +328,22 @@ button[type="submit"] {
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
-button[type="submit"]:hover {
+button[type="submit"]:hover:not(:disabled) {
     background: #fff;
     color: #050505;
 }
-button[type="submit"]:hover .btn-icon {
+button[type="submit"]:hover:not(:disabled) .btn-icon {
     background: #050505;
 }
 button[type="submit"]:disabled {
-    border-color: #555;
-    color: #555;
+    border-color: #444;
+    color: #444;
     cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
 }
 button[type="submit"]:disabled .btn-icon {
     background: transparent;
+    opacity: 0.3;
 }
 
 /* Success Message */

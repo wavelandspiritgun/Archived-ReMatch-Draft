@@ -10,6 +10,13 @@
 
 <div class="grid-lines"></div>
 
+<!-- SAFETY EXIT SIGN -->
+<div class="safety-exit-sign">
+    <span class="red-text">[ ESCAPE ]</span> = EMERGENCY EXIT<br>
+    <span class="hint-text">Clears form & redirects to weather.</span><br>
+    <span class="hint-text" style="font-size: 0.6rem; opacity: 0.8;">For those in unsafe situations, such as fleeing Domestic Violence.</span>
+</div>
+
 <div class="main-container">
 
     <!-- HEADER: The orchestrated pitch -->
@@ -22,7 +29,7 @@
         <div class="pitch-orchestration">
             <div class="pitch-stanza right-shift">
                 Life reduced to sulfur, trash, and ash? <br>
-                <span class="highlight">Jackpot. Let's rebuild.</span>
+                <span class="highlight glitch-text">Jackpot</span>. Let's run it back.
             </div>
             
             <div class="asset-placeholder tiny-triangle"></div>
@@ -35,18 +42,29 @@
             
             <div class="pitch-stanza center-shift">
                 We take the "red flags" coloring your past <br>
-                and use them to <strong>hack the system</strong>.
+                and use them as <strong>strengths</strong>.
             </div>
 
             <div class="asset-placeholder glitch-box"></div>
             
-            <div class="pitch-stanza right-shift edge-push">
-                Instead of swimming upstream, we use the current.<br><br>
-                Re.Match converts your most ruinous circumstances—<br>
-                criminal records, employment gaps, survival mode—<br>
-                into the exact constraints needed to unlock highly specific, localized grants and resources.
+            <div class="pitch-stanza dual-border">
+                Instead of swimming upstream, we use the current.<br>
+                Embrace your circumstance; flow with the current.
             </div>
-            
+
+            <div class="pitch-stanza mid-left">
+                Re.Match converts your most ruinous circumstances—
+            </div>
+
+            <div class="pitch-stanza mid-right">
+                criminal records, employment gaps, survival mode—
+            </div>
+
+            <div class="pitch-stanza left-shift">
+                ...into a system designed to unlock —<br>
+                highly specific, localized opportunities and resources.
+            </div>
+
             <div class="pitch-stanza massive">
                 Give us the raw data.<br>
                 <span class="blue-text">We give you the blueprint.</span>
@@ -65,8 +83,17 @@
 
     <!-- EMAIL LINK -->
     <div class="email-box offset-border-blue">
-        <p>Overwhelmed? The void is loud.</p>
-        <a href="mailto:tarotscepter@proton.me?subject=Re.Match%20Intake" class="email-btn">Bypass the Matrix [ Email Me Directly ]</a>
+        <p>Overwhelmed? Chaos is loud.</p>
+        <a href="mailto:tarotscepter@proton.me?subject=Re.Match%20Intake" class="email-btn">Direct Email - Speak Your Mind [ Email Me Directly ]</a>
+    </div>
+
+    <!-- ANONYMITY INFO -->
+    <div class="instruction-box offset-border-blue">
+        <div class="asset-placeholder section-icon"></div>
+        <h2 style="color: #3b82f6;">The Anonymity Protocol</h2>
+        <p>If you choose to remain a ghost, select <strong>"Post Anonymously."</strong></p>
+        <p>Your data is processed, your dossier is built, and then I strip away every identifying mark. The final blueprint is uploaded to this site's public archives. You—and only you—will know which one is yours by searching for your unique <strong>Alias</strong>.</p>
+        <p class="hint-text">Zero-Knowledge. Zero-Paper-Trail. Total Sovereignty.</p>
     </div>
 
     <!-- THE FORM -->
@@ -76,96 +103,197 @@
             <div class="asset-placeholder section-icon"></div>
             <h2>Part 1: Identity & Demographics</h2>
             
-            <label>Alias / Codeword</label>
-            <p class="hint-text">A ghost in the machine (e.g., "omega44").</p>
-            <input type="text" name="alias" required>
+            <div class="instruction-box">
+                <p class="hint-text highlight">NOTE: All fields are optional. They correlate directly to benefits, programs, non-profits, scholarships, and opportunities. If you do not want to respond, type "N/A". All data is used solely for your dossier report.</p>
+            </div>
 
-            <label>Location</label>
-            <p class="hint-text">City, State, and ZIP. Coordinates for localized extraction.</p>
-            <input type="text" name="location" required>
+            <label for="alias">Alias / Codeword</label>
+            <p class="hint-text">A ghost in the machine (e.g., "heartdawg12952").</p>
+            <input type="text" name="alias" id="alias" required>
 
-            <label>Age</label>
-            <input type="text" name="age">
-
-            <label>Gender</label>
-            <input type="text" name="gender">
-
-            <label>Ethnicity / Race</label>
-            <input type="text" name="ethnicity">
-
-            <label>Veteran Status</label>
-            <input type="text" name="veteranStatus">
-
-            <label>Documentation</label>
-            <p class="hint-text">Do you hold physical copies of your ID, SSN, or Birth Cert?</p>
-            <input type="text" name="documents" placeholder="Yes, No, or Some">
-
-            <label>Supervision</label>
-            <p class="hint-text">Are you currently tethered to Probation or Parole?</p>
-            <input type="text" name="supervisionStatus">
-
-            <label>Offense Type Barriers</label>
-            <p class="hint-text">Violent or registry flags? Own them here.</p>
+            <label>Delivery Preference</label>
+            <p class="hint-text">Should I email your blueprint directly, or post it anonymously to the site for you to find?</p>
             <div class="radio-options">
-                <input type="radio" name="has_barriers" value="Yes" id="barrier-yes"> Yes
-                <input type="radio" name="has_barriers" value="No" id="barrier-no"> No
+                <input type="radio" name="delivery_pref" value="Anonymized" id="pref-anon" checked> <label for="pref-anon" style="display:inline; text-transform:none;">Post Anonymously</label>
+                <input type="radio" name="delivery_pref" value="Email" id="pref-email"> <label for="pref-email" style="display:inline; text-transform:none;">Email Me Directly</label>
+            </div>
+
+            <div id="contact-info-box" class="hidden abstract-indent">
+                <label for="real_name">Name (Optional)</label>
+                <input type="text" name="real_name" id="real_name">
+                
+                <label for="user_email">Email</label>
+                <p class="hint-text">Required for direct delivery.</p>
+                <input type="text" name="user_email" id="user_email">
+
+                <label for="user_phone">Phone (Optional)</label>
+                <input type="text" name="user_phone" id="user_phone">
+            </div>
+
+            <label for="location">Location</label>
+            <p class="hint-text">City, State, and ZIP. Coordinates for localized extraction.</p>
+            <input type="text" name="location" id="location" required>
+
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age">
+
+            <label for="gender">Gender</label>
+            <input type="text" name="gender" id="gender">
+
+            <label for="sexual_orientation">Sexual Orientation</label>
+            <p class="hint-text">LGBTQ+ specific opportunities are highly localized.</p>
+            <input type="text" name="sexual_orientation" id="sexual_orientation">
+
+            <label for="ethnicity">Ethnicity / Race</label>
+            <p class="hint-text">Includes Tribal Affiliation (crucial for specific BIA opportunities).</p>
+            <input type="text" name="ethnicity" id="ethnicity">
+
+            <label for="spiritual_constraints">Spiritual / Religious Constraints</label>
+            <p class="hint-text">Many non-profits are faith-based; does this matter to you?</p>
+            <input type="text" name="spiritual_constraints" id="spiritual_constraints">
+
+            <label for="volunteer_work">Volunteer / Community Service</label>
+            <p class="hint-text">Have you ever served your community? Do you want to? What kind of community service interests you, or have you done in the past?</p>
+            <textarea name="volunteer_work" id="volunteer_work"></textarea>
+
+            <label for="veteranStatus">Veteran Status</label>
+            <input type="text" name="veteranStatus" id="veteranStatus">
+
+            <label for="first_gen_student">First-Generation Student?</label>
+            <p class="hint-text">Were you the first in your family to attend college?</p>
+            <input type="text" name="first_gen_student" id="first_gen_student">
+
+            <label for="foster_care">Foster Care History?</label>
+            <p class="hint-text">Former foster youth have access to specific tuition waivers.</p>
+            <input type="text" name="foster_care" id="foster_care">
+
+            <label for="single_parent">Single Parent Status?</label>
+            <p class="hint-text">Programs exist specifically for head-of-household parents.</p>
+            <input type="text" name="single_parent" id="single_parent">
+
+            <label for="documents">Documentation</label>
+            <p class="hint-text">Do you hold physical copies of your ID, SSN, or Birth Cert?</p>
+            <input type="text" name="documents" id="documents" placeholder="Yes, No, or Some">
+
+            <label for="supervisionStatus">Supervision</label>
+            <p class="hint-text">Are you currently tethered to Probation or Parole?</p>
+            <input type="text" name="supervisionStatus" id="supervisionStatus">
+
+            <label>Criminal History Barriers</label>
+            <p class="hint-text">Felony or Misdemeanor? Violent or registry flags? Own it here.</p>
+            <div class="radio-options">
+                <input type="radio" name="has_barriers" value="Yes" id="barrier-yes"> <label for="barrier-yes" style="display:inline; text-transform:none;">Yes</label>
+                <input type="radio" name="has_barriers" value="No" id="barrier-no"> <label for="barrier-no" style="display:inline; text-transform:none;">No</label>
             </div>
             
             <div id="barrier-details-box" class="hidden abstract-indent">
-                <label>Define the barriers</label>
-                <p class="hint-text">This helps us find the "fair chance" pipelines.</p>
-                <textarea name="barrier_details"></textarea>
+                <label for="barrier_details">Define the barriers</label>
+                <p class="hint-text">Specifics (e.g. "Misdemeanor 2018") help us find Fair Chance pipelines.</p>
+                <textarea name="barrier_details" id="barrier_details"></textarea>
             </div>
+
+            <label for="parental_incarceration">Parental Incarceration History</label>
+            <p class="hint-text">Did a parent serve time? This unlocks specific legacy scholarships.</p>
+            <input type="text" name="parental_incarceration" id="parental_incarceration">
+
+            <label for="dv_history">Domestic Violence (DV) History</label>
+            <p class="hint-text">Survivor status provides priority access to specialized re-housing. (Use ESC to exit if unsafe).</p>
+            <input type="text" name="dv_history" id="dv_history">
         </div>
 
         <div class="form-section abstract-border-right">
             <div class="asset-placeholder target-icon"></div>
             <h2>Part 2: Target Trajectories</h2>
             
-            <label>Career & Employment</label>
-            <p class="hint-text">What kind of apprenticeship or labor fuels you?</p>
-            <textarea name="career"></textarea>
+            <label for="mental_health">Mental Health & Substance Use</label>
+            <p class="hint-text">Certain constellations of mental health & substance diagnoses make you privy to unique aid or elevated priority in certain paths, or possibly disability payouts.</p>
+            <textarea name="mental_health" id="mental_health"></textarea>
 
-            <label>Education & Training</label>
-            <p class="hint-text">GED? Coding bootcamp? Ascending the academic ladder?</p>
-            <textarea name="education"></textarea>
+            <label for="disability_status">Disabled or Handicapped</label>
+            <p class="hint-text">Physical or cognitive constraints that require accommodation.</p>
+            <input type="text" name="disability_status" id="disability_status">
 
-            <label>Housing</label>
-            <p class="hint-text">Shelter? Rent survival? Section 8 navigation?</p>
-            <textarea name="housing"></textarea>
+            <label for="work_history">Employment & Work History</label>
+            <p class="hint-text">Current area of work and a detailed history (years, position, company optional).</p>
+            <textarea name="work_history" id="work_history"></textarea>
 
-            <label>Medical & Treatment</label>
-            <p class="hint-text">Recovery support or clinical navigation?</p>
-            <textarea name="medical"></textarea>
+            <label for="skills">Skills? Work related or otherwise?</label>
+            <textarea name="skills" id="skills"></textarea>
+
+            <label for="field_trajectory">Field Trajectory</label>
+            <p class="hint-text">Do you want to remain in the same field or enter a different field? Beyond yes or no, state why and what.</p>
+            <input type="text" name="field_trajectory" id="field_trajectory">
+
+            <label for="education_training">Education & Training</label>
+            <p class="hint-text">GED? Degrees? Skill training/bootcamps? <br>
+            <strong>TIP:</strong> Pursuits like <em>Google Career Certificates</em> or <em>IBM SkillsBuild</em> take 3-6 months and "unlock" entry-level IT, Project Management, and Data roles without a 4-year degree.</p>
+            <textarea name="education_training" id="education_training"></textarea>
+
+            <label for="scholarship_interest">School Scholarships & Opportunities?*</label>
+            <p class="hint-text">Are you specifically looking for academic funding?</p>
+            <input type="text" name="scholarship_interest" id="scholarship_interest">
+
+            <label for="housing">Housing & Chronicity</label>
+            <p class="hint-text">Shelter? Rent survival? Note if you've been homeless for 1yr+ or 4 times in 3yrs (unlocks "Chronic" vouchers).</p>
+            <textarea name="housing" id="housing"></textarea>
+
+            <label for="medical">Medical & Treatment</label>
+            <p class="hint-text">Are there any issues that you haven't looked into that you'd like help with, or that have been insufficiently addressed thus far?</p>
+            <textarea name="medical" id="medical"></textarea>
             
-            <label>Legal</label>
+            <label for="legal">Legal</label>
             <p class="hint-text">Expungement? Compliance entanglements?</p>
-            <textarea name="legal"></textarea>
+            <textarea name="legal" id="legal"></textarea>
 
-            <label>The Void</label>
+            <label for="other">The Void</label>
             <p class="hint-text">Anything else. Spill it.</p>
-            <textarea name="other"></textarea>
+            <textarea name="other" id="other"></textarea>
         </div>
 
         <div class="form-section abstract-border-left">
             <div class="asset-placeholder gear-icon"></div>
             <h2>Part 3: Constraints & Capabilities</h2>
 
-            <label>Hardware & Transport</label>
-            <p class="hint-text">Phone? Laptop? Vehicle? Bus pass?</p>
-            <textarea name="hardware_transport"></textarea>
+            <label for="hardware_transport">Hardware & Transport</label>
+            <p class="hint-text">Phone? Laptop? Vehicle? Do you need a bus pass?</p>
+            <textarea name="hardware_transport" id="hardware_transport"></textarea>
 
-            <label>Income Status</label>
+            <label for="mailing_address">Mailing Address</label>
+            <p class="hint-text">Do you have a reliable place for mail?</p>
+            <textarea name="mailing_address" id="mailing_address"></textarea>
+
+            <label for="internet_access">Internet Access</label>
+            <p class="hint-text">Do you have a data plan for your phone?</p>
+            <textarea name="internet_access" id="internet_access"></textarea>
+
+            <label for="health_insurance">What is your insurance?</label>
+            <p class="hint-text">I can find people providers for what they need in their insurance, including with specific backgrounds or training IE A primary care provider who's background is naturopathy, or one who's focus is holistic health and nutrition</p>
+            <input type="text" name="health_insurance" id="health_insurance">
+
+            <label for="gym_membership">Gym Membership?</label>
+            <p class="hint-text">Physical health is a pillar of sovereignty.</p>
+            <input type="text" name="gym_membership" id="gym_membership">
+
+            <label for="incomeMode">Income Status</label>
             <p class="hint-text">"Survival Mode" (need cash today) or "Reforge Mode" (stable enough to train)?</p>
-            <input type="text" name="incomeMode">
+            <input type="text" name="incomeMode" id="incomeMode">
 
-            <label>The Anchor</label>
-            <p class="hint-text">What actually keeps you on track?</p>
-            <textarea name="stays_on_track"></textarea>
+            <label for="stays_on_track">The Anchor</label>
+            <p class="hint-text">What keeps you on track? (Meditation, Martial Arts, Exercise, Dance, Rock Climbing, Hiking). <br>
+            <strong>TIP:</strong> These can often be covered by <em>Flex Funds</em> (State Insurance budget) if your PCP or Mental Health provider signs off on them as medically justifiable.</p>
+            <textarea name="stays_on_track" id="stays_on_track"></textarea>
 
-            <label>The Trap</label>
+            <label for="trips_up">The Trap</label>
             <p class="hint-text">What is the exact mechanism that usually trips you up?</p>
-            <textarea name="trips_up"></textarea>
+            <textarea name="trips_up" id="trips_up"></textarea>
+
+            <label for="dignity_maintenance">Dignity & Maintenance</label>
+            <p class="hint-text">Do you need secure storage for gear? Laundry vouchers? Interview clothing/boots? Hygiene kits?</p>
+            <textarea name="dignity_maintenance" id="dignity_maintenance"></textarea>
+
+            <label for="other_resources">Other Resources</label>
+            <p class="hint-text">Any other "free shit" you want me to look for?</p>
+            <textarea name="other_resources" id="other_resources"></textarea>
         </div>
 
         <!-- SUBMIT BUTTON -->
