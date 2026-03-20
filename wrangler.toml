@@ -1,0 +1,9 @@
+# wrangler.toml
+name = "einherjarendeavor-github-io"
+compatibility_date = "2026-03-20"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB" # This matches the 'context.env.DB' in your submit.js
+database_name = "db"
+database_id = "bbc66366-a400-4c03-accc-65eb60b6aedb"
