@@ -199,54 +199,112 @@
             <label for="dv_history">Domestic Violence (DV) History</label>
             <p class="hint-text">Survivor status provides priority access to specialized re-housing. (Use ESC to exit if unsafe).</p>
             <input type="text" name="dv_history" id="dv_history">
+
+            <label for="supports">Positive Supports</label>
+            <p class="hint-text">List 2-5 names/roles of people in your corner (e.g., "Sponsor - Mike", "Brother").</p>
+            <textarea name="supports" id="supports"></textarea>
+
+            <label for="dependents">Children / Dependents</label>
+            <p class="hint-text">Note any custody issues, family court involvement, or child support status.</p>
+            <textarea name="dependents" id="dependents"></textarea>
+
+            <label for="justice_constraints">Justice System Constraints</label>
+            <p class="hint-text">List any curfews, no-go zones, treatment mandates, or testing schedules.</p>
+            <textarea name="justice_constraints" id="justice_constraints"></textarea>
+
+            <label for="safety_risks">Worst-Case Risks</label>
+            <p class="hint-text">Risk of self-harm, harm from others, stalking, or trafficking? Own it here so we can plan for safety.</p>
+            <textarea name="safety_risks" id="safety_risks"></textarea>
         </div>
 
         <div class="form-section abstract-border-right">
             <div class="asset-placeholder target-icon"></div>
             <h2>Part 2: Target Trajectories</h2>
             
+            <label for="housing">Housing Situation</label>
+            <p class="hint-text">Where are you sleeping tonight? (Shelter, Tent, Car, Couch, Program, Motel). Is it safe/sober?</p>
+            <textarea name="housing" id="housing"></textarea>
+
+            <label for="housing_constraints">Housing Constraints & Preferences</label>
+            <p class="hint-text">People you can/cannot live with. Need for pets, partners, accessibility, or specific neighborhoods?</p>
+            <textarea name="housing_constraints" id="housing_constraints"></textarea>
+
+            <label for="stay_duration">Housing Timeline</label>
+            <p class="hint-text">How long can you stay where you are? (e.g., "Until March 30th").</p>
+            <input type="text" name="stay_duration" id="stay_duration">
+
             <label for="mental_health">Mental Health & Substance Use</label>
-            <p class="hint-text">Certain constellations of mental health & substance diagnoses make you privy to unique aid or elevated priority in certain paths, or possibly disability payouts.</p>
+            <p class="hint-text">Certain constellations of mental health & substance diagnoses make you privy to unique aid or elevated priority.</p>
             <textarea name="mental_health" id="mental_health"></textarea>
+
+            <label for="recovery_status">Recovery Structure</label>
+            <p class="hint-text">Sobriety date or last use. Interest in MAT (Methadone/Bupe)? Harm-reduction or full abstinence goals?</p>
+            <textarea name="recovery_status" id="recovery_status"></textarea>
+
+            <label for="recovery_capital">Recovery Capital</label>
+            <p class="hint-text">Sober friends, family, sponsor, or groups (AA/NA/SMART). Previous programs that helped or harmed?</p>
+            <textarea name="recovery_capital" id="recovery_capital"></textarea>
+
+            <label for="high_risk_triggers">High-Risk Triggers</label>
+            <p class="hint-text">Specific people, places, or times that usually lead to a slip.</p>
+            <textarea name="high_risk_triggers" id="high_risk_triggers"></textarea>
 
             <label for="disability_status">Disabled or Handicapped</label>
             <p class="hint-text">Physical or cognitive constraints that require accommodation.</p>
             <input type="text" name="disability_status" id="disability_status">
 
+            <label for="functional_barriers">Functional Barriers</label>
+            <p class="hint-text">Executive function, memory, reading, chronic pain, or sensory needs?</p>
+            <textarea name="functional_barriers" id="functional_barriers"></textarea>
+
+            <label for="accommodations">Program Accommodations</label>
+            <p class="hint-text">Reminders, written follow-ups, flexible scheduling, or sensory-friendly spaces?</p>
+            <textarea name="accommodations" id="accommodations"></textarea>
+
+            <label for="medical">Medical & Treatment</label>
+            <p class="hint-text">Are there any issues that you haven't looked into that you'd like help with?</p>
+            <textarea name="medical" id="medical"></textarea>
+
+            <label>Provider Needs Checklist</label>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="needs_pcp"> PCP</label>
+                <label><input type="checkbox" name="needs_mh"> Mental Health</label>
+                <label><input type="checkbox" name="needs_sud"> SUD Counselor</label>
+                <label><input type="checkbox" name="needs_acupuncture"> Acupuncture</label>
+                <label><input type="checkbox" name="needs_massage"> Massage</label>
+                <label><input type="checkbox" name="needs_nutrition"> Nutritionist</label>
+                <label><input type="checkbox" name="needs_fitness"> Fitness</label>
+                <label><input type="checkbox" name="needs_pain"> Pain Mgmt</label>
+            </div>
+
+            <label for="health_insurance">Health Insurance</label>
+            <p class="hint-text">Provider name? CCO or Open Card? Can you switch plans if needed?</p>
+            <textarea name="health_insurance" id="health_insurance"></textarea>
+
             <label for="work_history">Employment & Work History</label>
-            <p class="hint-text">Current area of work and a detailed history (years, position, company optional).</p>
+            <p class="hint-text">Current area of work and a detailed history.</p>
             <textarea name="work_history" id="work_history"></textarea>
 
-            <label for="skills">Skills? Work related or otherwise?</label>
+            <label for="skills">Skills & Unusual Talents</label>
+            <p class="hint-text">Work-related skills, certifications/credentials, or stuff you're unusually good at.</p>
             <textarea name="skills" id="skills"></textarea>
 
             <label for="field_trajectory">Field Trajectory</label>
-            <p class="hint-text">Do you want to remain in the same field or enter a different field? Beyond yes or no, state why and what.</p>
+            <p class="hint-text">Stay in field or change? State why and what.</p>
             <input type="text" name="field_trajectory" id="field_trajectory">
 
             <label for="education_training">Education & Training</label>
-            <p class="hint-text">GED? Degrees? Skill training/bootcamps? <br>
-            <strong>TIP:</strong> Pursuits like <em>Google Career Certificates</em> or <em>IBM SkillsBuild</em> take 3-6 months and "unlock" entry-level IT, Project Management, and Data roles without a 4-year degree.</p>
+            <p class="hint-text">GED? Degrees? Skill training/bootcamps?</p>
             <textarea name="education_training" id="education_training"></textarea>
 
-            <label for="scholarship_interest">School Scholarships & Opportunities?*</label>
-            <p class="hint-text">Are you specifically looking for academic funding?</p>
+            <label for="scholarship_interest">School Scholarships?*</label>
             <input type="text" name="scholarship_interest" id="scholarship_interest">
-
-            <label for="housing">Housing & Chronicity</label>
-            <p class="hint-text">Shelter? Rent survival? Note if you've been homeless for 1yr+ or 4 times in 3yrs (unlocks "Chronic" vouchers).</p>
-            <textarea name="housing" id="housing"></textarea>
-
-            <label for="medical">Medical & Treatment</label>
-            <p class="hint-text">Are there any issues that you haven't looked into that you'd like help with, or that have been insufficiently addressed thus far?</p>
-            <textarea name="medical" id="medical"></textarea>
             
-            <label for="legal">Legal</label>
-            <p class="hint-text">Expungement? Compliance entanglements?</p>
+            <label for="legal">Legal Status</label>
+            <p class="hint-text">Expungement? Compliance entanglements? Restitution?</p>
             <textarea name="legal" id="legal"></textarea>
 
             <label for="other">The Void</label>
-            <p class="hint-text">Anything else. Spill it.</p>
             <textarea name="other" id="other"></textarea>
         </div>
 
@@ -262,38 +320,81 @@
             <p class="hint-text">Do you have a reliable place for mail?</p>
             <textarea name="mailing_address" id="mailing_address"></textarea>
 
-            <label for="internet_access">Internet Access</label>
-            <p class="hint-text">Do you have a data plan for your phone?</p>
-            <textarea name="internet_access" id="internet_access"></textarea>
+            <label>Internet Access Checklist</label>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="has_smartphone"> Smartphone</label>
+                <label><input type="checkbox" name="has_dataplan"> Data Plan</label>
+                <label><input type="checkbox" name="has_wifi"> WiFi Access</label>
+                <label><input type="checkbox" name="has_email"> Active Email</label>
+            </div>
 
-            <label for="health_insurance">What is your insurance?</label>
-            <p class="hint-text">I can find people providers for what they need in their insurance, including with specific backgrounds or training IE A primary care provider who's background is naturopathy, or one who's focus is holistic health and nutrition</p>
-            <input type="text" name="health_insurance" id="health_insurance">
+            <label>Benefits & ID Checklist</label>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="has_snap"> SNAP</label>
+                <label><input type="checkbox" name="has_ssi"> SSI/SSDI</label>
+                <label><input type="checkbox" name="has_va"> VA Benefits</label>
+                <label><input type="checkbox" name="has_id"> State ID</label>
+                <label><input type="checkbox" name="has_ss_card"> SS Card</label>
+                <label><input type="checkbox" name="has_birth_cert"> Birth Cert</label>
+                <label><input type="checkbox" name="has_bank"> Bank Account</label>
+            </div>
 
-            <label for="gym_membership">Gym Membership?</label>
-            <p class="hint-text">Physical health is a pillar of sovereignty.</p>
-            <input type="text" name="gym_membership" id="gym_membership">
+            <label for="income_goal">Income Goals & Timeline</label>
+            <p class="hint-text">"Need at least $X/month by Y date to stabilize." Outstanding fines or child support?</p>
+            <textarea name="income_goal" id="income_goal"></textarea>
 
-            <label for="incomeMode">Income Status</label>
-            <p class="hint-text">"Survival Mode" (need cash today) or "Reforge Mode" (stable enough to train)?</p>
+            <label for="gym_membership">Gym Membership & Fitness</label>
+            <p class="hint-text">Acceptable radius? Mode (Weights, Climbing, Boxing)? Realistic times of day?</p>
+            <textarea name="gym_membership" id="gym_membership"></textarea>
+
+            <label for="incomeMode">Current Income Mode</label>
+            <p class="hint-text">"Survival Mode" (cash today) or "Reforge Mode" (stable enough to train)?</p>
             <input type="text" name="incomeMode" id="incomeMode">
 
             <label for="stays_on_track">The Anchor</label>
-            <p class="hint-text">What keeps you on track? (Meditation, Martial Arts, Exercise, Dance, Rock Climbing, Hiking). <br>
-            <strong>TIP:</strong> These can often be covered by <em>Flex Funds</em> (State Insurance budget) if your PCP or Mental Health provider signs off on them as medically justifiable.</p>
+            <p class="hint-text">What keeps you on track? (Meditation, Martial Arts, Hiking, etc.)</p>
             <textarea name="stays_on_track" id="stays_on_track"></textarea>
 
             <label for="trips_up">The Trap</label>
-            <p class="hint-text">What is the exact mechanism that usually trips you up?</p>
+            <p class="hint-text">What is the exact mechanism that trips you up? What bad outcomes has this led to before?</p>
             <textarea name="trips_up" id="trips_up"></textarea>
 
             <label for="dignity_maintenance">Dignity & Maintenance</label>
-            <p class="hint-text">Do you need secure storage for gear? Laundry vouchers? Interview clothing/boots? Hygiene kits?</p>
+            <p class="hint-text">Secure storage for gear? Laundry? Interview boots? Hygiene?</p>
             <textarea name="dignity_maintenance" id="dignity_maintenance"></textarea>
 
             <label for="other_resources">Other Resources</label>
             <p class="hint-text">Any other "free shit" you want me to look for?</p>
             <textarea name="other_resources" id="other_resources"></textarea>
+        </div>
+
+        <div class="form-section abstract-border-right">
+            <div class="asset-placeholder target-icon"></div>
+            <h2>Part 4: Goals & Preferences</h2>
+            
+            <label for="priorities">Top 3 Priorities</label>
+            <p class="hint-text">What needs to happen in the next 30 days? 90 days? 1 year?</p>
+            <textarea name="priorities" id="priorities"></textarea>
+
+            <label for="engagement_pref">Engagement Style</label>
+            <p class="hint-text">How often do you want check-ins? Do you want a peer with lived experience?</p>
+            <textarea name="engagement_pref" id="engagement_pref"></textarea>
+
+            <label>Communication Preference</label>
+            <div class="radio-options">
+                <input type="radio" name="comm_pref" value="Text" id="comm-text"> <label for="comm-text" style="display:inline; text-transform:none;">Text</label>
+                <input type="radio" name="comm_pref" value="Call" id="comm-call"> <label for="comm-call" style="display:inline; text-transform:none;">Call</label>
+                <input type="radio" name="comm_pref" value="Email" id="comm-email"> <label for="comm-email" style="display:inline; text-transform:none;">Email</label>
+            </div>
+
+            <label>Willing to Engage In</label>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="engage_peer"> Peer Support</label>
+                <label><input type="checkbox" name="engage_faith"> Faith Groups</label>
+                <label><input type="checkbox" name="engage_creative"> Creative Groups</label>
+                <label><input type="checkbox" name="engage_sports"> Sports Leagues</label>
+                <label><input type="checkbox" name="engage_culture"> Culture-Specific</label>
+            </div>
         </div>
 
         <!-- SUBMIT BUTTON -->

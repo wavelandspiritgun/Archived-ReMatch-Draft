@@ -309,6 +309,31 @@ label {
     border-left: 1px dashed #3b82f6;
 }
 
+/* Checkbox Grid */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border: 1px dotted #444;
+}
+.checkbox-grid label {
+    font-size: 0.75rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.checkbox-grid input[type="checkbox"] {
+    accent-color: #3b82f6;
+}
+
 /* Submit Button */
 button[type="submit"] {
     width: 100%;
