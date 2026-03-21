@@ -1,6 +1,6 @@
 /* 
    RE.MATCH - Clinical Archive Overhaul
-   Task: Onboarding Logic & Wizard Navigation
+   FINAL LOGIC SYNC - Wizard & Toggles
 */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -88,16 +88,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Anonymous Toggle Logic
     const anonCheckbox = document.getElementById('is_anonymous');
     const aliasBox = document.getElementById('alias-box');
-    const fullNameInput = document.getElementById('full_name');
+    const aliasInput = document.getElementById('alias');
 
     if (anonCheckbox && aliasBox) {
         anonCheckbox.addEventListener('change', function() {
             if (this.checked) {
                 aliasBox.classList.remove('hidden');
-                if (fullNameInput) fullNameInput.placeholder = "ANONYMOUS SESSION ENABLED";
+                if (aliasInput) aliasInput.required = true;
             } else {
                 aliasBox.classList.add('hidden');
-                if (fullNameInput) fullNameInput.placeholder = "First and Last Name";
+                if (aliasInput) aliasInput.required = false;
             }
         });
     }
