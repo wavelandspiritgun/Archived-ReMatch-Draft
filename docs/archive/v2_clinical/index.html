@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re.Match - Intake Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- PageClip Professional Styling -->
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+</head>
+<body>
+
+<!-- BLUEPRINT LEDGER -->
+<div class="blueprint-ledger" aria-hidden="true">
+    <div class="ledger-track">
+        <span>ALIAS: GHOST_99 | STATUS: MATCHED | 3 CLUSTERS FOUND</span>
+        <span>ALIAS: NULL_BYTE | STATUS: MATCHED | 1 CLUSTER FOUND</span>
+        <span>ALIAS: WANDERER | STATUS: MATCHED | 5 CLUSTERS FOUND</span>
+        <span>ALIAS: NOMAD_7 | STATUS: PENDING | AWAITING PROTOCOL</span>
+        <span>ALIAS: ZERO_DAY | STATUS: MATCHED | 4 CLUSTERS FOUND</span>
+        <!-- Duplicated for seamless scrolling -->
+        <span>ALIAS: GHOST_99 | STATUS: MATCHED | 3 CLUSTERS FOUND</span>
+        <span>ALIAS: NULL_BYTE | STATUS: MATCHED | 1 CLUSTER FOUND</span>
+        <span>ALIAS: WANDERER | STATUS: MATCHED | 5 CLUSTERS FOUND</span>
+        <span>ALIAS: NOMAD_7 | STATUS: PENDING | AWAITING PROTOCOL</span>
+        <span>ALIAS: ZERO_DAY | STATUS: MATCHED | 4 CLUSTERS FOUND</span>
+    </div>
+</div>
+
+<div class="safety-exit-sign clinical-border">
+    <span class="sovereign-text">[ ESCAPE ]</span> = TERMINATE SESSION<br>
+    <span class="hint-text">Clears cache & redirects to standard index.</span><br>
+    <span class="hint-text" style="font-size: 0.6rem; opacity: 0.8;">Emergency protocol for unsafe environments.</span>
+</div>
+
+<main class="archive-frame">
+
+    <header class="system-header">
+        <div class="logo-cluster">
+            <div class="sigil">R/M</div>
+            <h1>RE.MATCH <span class="sovereign-text">INTAKE PROTOCOL</span></h1>
+        </div>
+        
+        <div class="system-brief clinical-border">
+            <p><strong>SYSTEM SUMMARY:</strong> This protocol is designed to map constraints and identify opportunities. Ensure all provided data is strictly necessary for matching.</p>
+            <p class="warning-text">WARNING: DO NOT USE YOUR LEGAL NAME. USE AN ALIAS. ZERO-KNOWLEDGE PROTOCOL ENFORCED.</p>
+        </div>
+    </header>
+
+    <div class="wizard-progress">
+        <div class="progress-step active" data-step="1">01. INIT</div>
+        <div class="progress-step" data-step="2">02. SCAN</div>
+        <div class="progress-step" data-step="3">03. CONSTRAINTS</div>
+        <div class="progress-step" data-step="4">04. OBJECTIVES</div>
+    </div>
+
+    <!-- THE FORM -->
+    <form id="intake-form" action="https://send.pageclip.co/Lqp0fYZ3cng8noDKFqLGThQ4OGn4syYb" class="pageclip-form protocol-wizard" method="POST">
+
+        <!-- STEP 1: INIT -->
+        <section class="wizard-step active" id="step-1">
+            <div class="step-header">
+                <h2>01. Initialization</h2>
+                <span class="step-icon">[ID]</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="alias">Alias / Ghost ID <span class="req">*</span></label>
+                <p class="hint-text">Alphanumeric designation (e.g., "WANDERER_99"). No real names.</p>
+                <input type="text" name="alias" id="alias" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+                <label>Delivery Protocol</label>
+                <p class="hint-text">Select dossier drop method.</p>
+                <div class="radio-options">
+                    <input type="radio" name="delivery_pref" value="Anonymized" id="pref-anon" checked> <label for="pref-anon">Public Archive (Ghost Mode)</label><br>
+                    <input type="radio" name="delivery_pref" value="Email" id="pref-email"> <label for="pref-email">Direct Encrypted Email</label>
+                </div>
+            </div>
+
+            <div id="contact-info-box" class="form-group hidden clinical-border">
+                <label for="user_email">Secure Email</label>
+                <input type="email" name="user_email" id="user_email">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Geographic Coordinates <span class="req">*</span></label>
+                <p class="hint-text">City, State, ZIP. Required for localized extraction.</p>
+                <input type="text" name="location" id="location" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="demographics">Demographics [Age/Gender/Ethnicity]</label>
+                <p class="hint-text">Data used solely for demographic-specific opportunity mapping.</p>
+                <input type="text" name="demographics" id="demographics" placeholder="e.g. 32 / M / Native American">
+            </div>
+
+            <div class="wizard-controls">
+                <button type="button" class="btn-next sovereign-btn">Proceed to Scan &rarr;</button>
+            </div>
+        </section>
+
+        <!-- STEP 2: SCAN -->
+        <section class="wizard-step hidden" id="step-2">
+            <div class="step-header">
+                <h2>02. Environmental Scan</h2>
+                <span class="step-icon">[ENV]</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="housing">Housing Status</label>
+                <p class="hint-text">Current shelter viability and duration.</p>
+                <textarea name="housing" id="housing" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="mental_health">Health & Recovery Status</label>
+                <p class="hint-text">Diagnoses, sobriety timelines, or harm-reduction goals.</p>
+                <textarea name="mental_health" id="mental_health" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>System Dependencies</label>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="needs_pcp"> PCP Required</label>
+                    <label><input type="checkbox" name="needs_mh"> MH Specialist</label>
+                    <label><input type="checkbox" name="needs_sud"> SUD Support</label>
+                    <label><input type="checkbox" name="has_disability"> ADA Accomm.</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="work_history">Vocational Trajectory</label>
+                <p class="hint-text">Work history and target industries.</p>
+                <textarea name="work_history" id="work_history" rows="2"></textarea>
+            </div>
+
+            <div class="wizard-controls dual-controls">
+                <button type="button" class="btn-prev clinical-btn">&larr; Return</button>
+                <button type="button" class="btn-next sovereign-btn">Map Constraints &rarr;</button>
+            </div>
+        </section>
+
+        <!-- STEP 3: CONSTRAINTS -->
+        <section class="wizard-step hidden" id="step-3">
+            <div class="step-header">
+                <h2>03. Constraint Mapping</h2>
+                <span class="step-icon">[ERR]</span>
+            </div>
+
+            <div class="form-group">
+                <label>Justice System Flags</label>
+                <div class="radio-options">
+                    <input type="radio" name="has_barriers" value="Yes" id="barrier-yes"> <label for="barrier-yes">Active Flags (Felony/Misd)</label><br>
+                    <input type="radio" name="has_barriers" value="No" id="barrier-no" checked> <label for="barrier-no">Clear</label>
+                </div>
+            </div>
+
+            <div id="barrier-details-box" class="form-group hidden clinical-border">
+                <label for="barrier_details">Flag Specifics</label>
+                <p class="hint-text">Year, type, and active supervision status.</p>
+                <textarea name="barrier_details" id="barrier_details" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Infrastructure Deficits</label>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="no_id"> Missing ID</label>
+                    <label><input type="checkbox" name="no_transport"> No Transport</label>
+                    <label><input type="checkbox" name="no_internet"> No Comms</label>
+                    <label><input type="checkbox" name="dv_risk"> Active Threat</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="income_goal">Capital Deficit</label>
+                <p class="hint-text">Monthly capital required to stabilize.</p>
+                <input type="text" name="income_goal" id="income_goal" placeholder="$0.00 / month">
+            </div>
+
+            <div class="wizard-controls dual-controls">
+                <button type="button" class="btn-prev clinical-btn">&larr; Return</button>
+                <button type="button" class="btn-next sovereign-btn">Define Objectives &rarr;</button>
+            </div>
+        </section>
+
+        <!-- STEP 4: OBJECTIVES -->
+        <section class="wizard-step hidden" id="step-4">
+            <div class="step-header">
+                <h2>04. Objective Definition</h2>
+                <span class="step-icon">[OBJ]</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="priorities">Primary Objectives (T-30/90/365)</label>
+                <p class="hint-text">Identify critical path objectives.</p>
+                <textarea name="priorities" id="priorities" rows="3" required aria-required="true"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Engagement Preferences</label>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="engage_peer"> Peer Mentorship</label>
+                    <label><input type="checkbox" name="engage_faith"> Faith-Based</label>
+                    <label><input type="checkbox" name="engage_creative"> Creative Sectors</label>
+                    <label><input type="checkbox" name="engage_sports"> Physical/Athletic</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="other">Ancillary Data</label>
+                <p class="hint-text">Any additional data points necessary for the blueprint.</p>
+                <textarea name="other" id="other" rows="2"></textarea>
+            </div>
+
+            <div class="wizard-controls dual-controls">
+                <button type="button" class="btn-prev clinical-btn">&larr; Return</button>
+                <button type="submit" id="submit-btn" class="pageclip-form__submit sovereign-btn">
+                    <span class="btn-text">TRANSMIT DOSSIER</span>
+                </button>
+            </div>
+        </section>
+    </form>
+
+    <div id="success-message" class="hidden success-box clinical-border">
+        <h2>TRANSMISSION VERIFIED.</h2>
+        <p>Your data has been successfully committed to the secure archive.</p>
+        <p>Maintain record of your <strong>Alias</strong>. Match results will be indexed under this designation.</p>
+    </div>
+
+</main>
+
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<script src="script.js"></script>
+</body>
+</html>

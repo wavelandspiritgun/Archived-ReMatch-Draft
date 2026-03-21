@@ -1,70 +1,58 @@
 /* 
-   RE.MATCH - Clinical Archive Overhaul
-   Task 4: Wizard Logic & Validation
+   RE.MATCH - Concrete Blueprint Wizard Logic
 */
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Safety Exit Protocol
+    // Safety Exit Protocol (ESC)
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             const form = document.querySelector('.protocol-wizard');
             if (form) form.reset();
-            window.location.href = 'https://www.google.com/search?q=weather';
+            window.location.href = 'https://www.google.com/search?q=weather+portland';
         }
     });
 
-    // Wizard Navigation State
+    // Navigation State
     let currentStep = 1;
     const totalSteps = 4;
     const steps = document.querySelectorAll('.wizard-step');
     const progressIndicators = document.querySelectorAll('.progress-step');
 
     function updateWizard() {
-        // Update Sections
         steps.forEach((step, index) => {
-            if (index + 1 === currentStep) {
-                step.classList.remove('hidden');
-            } else {
-                step.classList.add('hidden');
-            }
+            step.classList.toggle('hidden', index + 1 !== currentStep);
         });
 
-        // Update Progress Bar
         progressIndicators.forEach((indicator, index) => {
             const stepNum = index + 1;
-            indicator.classList.remove('active', 'completed');
-            if (stepNum === currentStep) {
-                indicator.classList.add('active');
-            } else if (stepNum < currentStep) {
-                indicator.classList.add('completed');
-            }
+            indicator.classList.toggle('active', stepNum === currentStep);
         });
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Validate Required Fields for current step
+    // Validation
     function validateStep(stepIndex) {
         const step = steps[stepIndex - 1];
-        const requiredInputs = step.querySelectorAll('input[required], textarea[required]');
+        const requiredFields = step.querySelectorAll('[required]');
         let isValid = true;
 
-        requiredInputs.forEach(input => {
-            if (!input.value.trim()) {
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
                 isValid = false;
-                input.style.borderColor = 'var(--text-error)';
-                input.style.backgroundColor = 'var(--bg-error)';
+                field.style.borderColor = 'var(--text-error)';
+                field.style.backgroundColor = '#fee2e2';
             } else {
-                input.style.borderColor = 'var(--border-clinical)';
-                input.style.backgroundColor = 'var(--bg-mute)';
+                field.style.borderColor = 'var(--border-structural)';
+                field.style.backgroundColor = '#ffffff';
             }
         });
 
         return isValid;
     }
 
-    // Navigation Listeners
+    // Event Listeners
     document.querySelectorAll('.btn-next').forEach(btn => {
         btn.addEventListener('click', () => {
             if (validateStep(currentStep)) {
@@ -85,67 +73,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form Logic Toggles
-    const barrierYesBtn = document.getElementById('barrier-yes');
-    const barrierNoBtn = document.getElementById('barrier-no');
-    const barrierDetailsBox = document.getElementById('barrier-details-box');
+    // Dynamic Field Toggles
+    const barrierYes = document.getElementById('barrier-yes');
+    const barrierNo = document.getElementById('barrier-no');
+    const barrierDetails = document.getElementById('barrier_details');
 
-    function checkBarrierStatus() {
-        if (barrierYesBtn && barrierYesBtn.checked) {
-            if (barrierDetailsBox) barrierDetailsBox.classList.remove('hidden');
-        } else if (barrierDetailsBox) {
-            barrierDetailsBox.classList.add('hidden');
-        }
+    if (barrierYes && barrierNo) {
+        [barrierYes, barrierNo].forEach(el => {
+            el.addEventListener('change', () => {
+                barrierDetails.classList.toggle('hidden', !barrierYes.checked);
+            });
+        });
     }
 
-    if (barrierYesBtn && barrierNoBtn) {
-        barrierYesBtn.addEventListener('change', checkBarrierStatus);
-        barrierNoBtn.addEventListener('change', checkBarrierStatus);
+    const prefEmail = document.getElementById('pref-email');
+    const prefAnon = document.getElementById('pref-anon');
+    const contactBox = document.getElementById('contact-info-box');
+
+    if (prefEmail && prefAnon) {
+        [prefEmail, prefAnon].forEach(el => {
+            el.addEventListener('change', () => {
+                contactBox.classList.toggle('hidden', !prefEmail.checked);
+            });
+        });
     }
 
-    const prefEmailBtn = document.getElementById('pref-email');
-    const prefAnonBtn = document.getElementById('pref-anon');
-    const contactInfoBox = document.getElementById('contact-info-box');
-
-    function checkContactPref() {
-        if (prefEmailBtn && prefEmailBtn.checked) {
-            if (contactInfoBox) contactInfoBox.classList.remove('hidden');
-        } else if (contactInfoBox) {
-            contactInfoBox.classList.add('hidden');
-        }
-    }
-
-    if (prefEmailBtn && prefAnonBtn) {
-        prefEmailBtn.addEventListener('change', checkContactPref);
-        prefAnonBtn.addEventListener('change', checkContactPref);
-    }
-
-    // PageClip AJAX Initialization
+    // PageClip Handlers
     const form = document.querySelector('.protocol-wizard');
     if (form && typeof Pageclip !== 'undefined') {
         Pageclip.form(form, {
-            onSubmit: function (event) {
+            onSubmit: function() {
                 if (!validateStep(totalSteps)) return false;
-                
-                const submitBtn = document.getElementById('submit-btn');
-                submitBtn.disabled = true;
-                const btnText = submitBtn.querySelector('.btn-text');
-                if (btnText) btnText.innerText = "TRANSMITTING TO ARCHIVE...";
-                return true; 
+                const btn = document.getElementById('submit-btn');
+                btn.disabled = true;
+                btn.querySelector('.btn-text').innerText = "STRUCTURING BLUEPRINT...";
+                return true;
             },
-            onResponse: function (error, response) {
+            onResponse: function(error) {
                 if (!error) {
                     form.classList.add('hidden');
                     document.querySelector('.wizard-progress').classList.add('hidden');
                     document.getElementById('success-message').classList.remove('hidden');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    console.error("Archive Transmission Error:", error);
-                    alert("CRITICAL: Transmission Interrupted. Protocol failed to sync.");
-                    const submitBtn = document.getElementById('submit-btn');
-                    submitBtn.disabled = false;
-                    const btnText = submitBtn.querySelector('.btn-text');
-                    if (btnText) btnText.innerText = "RE-INITIATE TRANSMISSION";
+                    alert("STRUCTURAL ERROR: Transmission failed.");
+                    const btn = document.getElementById('submit-btn');
+                    btn.disabled = false;
+                    btn.querySelector('.btn-text').innerText = "BUILD BLUEPRINT";
                 }
             }
         });
