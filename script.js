@@ -120,34 +120,57 @@ document.addEventListener('DOMContentLoaded', function() {
         prefAnonBtn.addEventListener('change', checkContactPref);
     }
 
-    // PageClip AJAX Initialization
+    // PageClip & D1 Dual-Transmission Protocol
     const form = document.querySelector('.protocol-wizard');
-    if (form && typeof Pageclip !== 'undefined') {
-        Pageclip.form(form, {
-            onSubmit: function (event) {
-                if (!validateStep(totalSteps)) return false;
-                
-                const submitBtn = document.getElementById('submit-btn');
-                submitBtn.disabled = true;
-                const btnText = submitBtn.querySelector('.btn-text');
-                if (btnText) btnText.innerText = "TRANSMITTING...";
-                return true; 
-            },
-            onResponse: function (error, response) {
-                if (!error) {
-                    form.classList.add('hidden');
-                    document.querySelector('.wizard-progress').classList.add('hidden');
-                    document.getElementById('success-message').classList.remove('hidden');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    console.error("PageClip Error:", error);
-                    alert("Transmission Error. Check connection.");
-                    const submitBtn = document.getElementById('submit-btn');
-                    submitBtn.disabled = false;
-                    const btnText = submitBtn.querySelector('.btn-text');
-                    if (btnText) btnText.innerText = "TRANSMIT DOSSIER";
-                }
+    if (form) {
+        // We use a manual fetch for D1 redundancy before/during PageClip transmission
+        async function transmitToD1(data) {
+            try {
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                return response.ok;
+            } catch (err) {
+                console.error("D1 Transmission Failure:", err);
+                return false;
             }
-        });
+        }
+
+        if (typeof Pageclip !== 'undefined') {
+            Pageclip.form(form, {
+                onSubmit: function (event) {
+                    if (!validateStep(totalSteps)) return false;
+                    
+                    const submitBtn = document.getElementById('submit-btn');
+                    submitBtn.disabled = true;
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    if (btnText) btnText.innerText = "TRANSMITTING TO ARCHIVE...";
+
+                    // Extract data for D1
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+                    transmitToD1(data); // Fire and forget D1 backup
+
+                    return true; 
+                },
+                onResponse: function (error, response) {
+                    const submitBtn = document.getElementById('submit-btn');
+                    if (!error) {
+                        form.classList.add('hidden');
+                        document.querySelector('.wizard-progress').classList.add('hidden');
+                        document.getElementById('success-message').classList.remove('hidden');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        console.error("Archive Transmission Error:", error);
+                        alert("CRITICAL: Transmission Interrupted. Protocol failed to sync.");
+                        submitBtn.disabled = false;
+                        const btnText = submitBtn.querySelector('.btn-text');
+                        if (btnText) btnText.innerText = "RE-INITIATE TRANSMISSION";
+                    }
+                }
+            });
+        }
     }
 });
