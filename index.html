@@ -6,7 +6,7 @@
     <title>RE.MATCH - Opportunity Mapping</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
 </head>
@@ -188,7 +188,7 @@
                 <label>Have you been a victim of a crime?</label>
                 <div class="radio-options">
                     <label for="cv-yes"><input type="radio" name="crimeVictimStatus" value="Yes" id="cv-yes"> Yes</label>
-                    <label for="cv-no"><input type="radio" name="crimeVictimStatus" value="No" id="cv-no"> No</label>
+                    <label><input type="radio" name="crimeVictimStatus" value="No" id="cv-no"> No</label>
                 </div>
             </fieldset>
             
@@ -231,6 +231,10 @@
             <div class="step-header">
                 <h2>02. Career & Money</h2>
                 <span class="step-icon">[WORK]</span>
+            </div>
+
+            <div class="section-image-placeholder clinical-border">
+                <img src="assets/career-placeholder.jpg" alt="Career & Money" id="img-career">
             </div>
             
             <fieldset class="form-group">
@@ -352,6 +356,10 @@
             <div class="step-header">
                 <h2>03. Health & Recovery</h2>
                 <span class="step-icon">[HEALTH]</span>
+            </div>
+
+            <div class="section-image-placeholder clinical-border">
+                <img src="assets/health-placeholder.jpg" alt="Health & Recovery" id="img-health">
             </div>
 
             <fieldset class="form-group">
@@ -478,7 +486,7 @@
 
             <div class="wizard-controls dual-controls">
                 <button type="button" class="btn-prev clinical-btn">&larr; Return</button>
-                <button type="button" class="btn-next sovereign-btn">Step 4: Life & Goals &rarr;</button>
+                <button type="button" class="btn-next sovereign-btn">Step 4: Final Life Check &rarr;</button>
             </div>
         </section>
 
@@ -487,6 +495,10 @@
             <div class="step-header">
                 <h2>04. Life & Goals</h2>
                 <span class="step-icon">[LIFE]</span>
+            </div>
+
+            <div class="section-image-placeholder clinical-border">
+                <img src="assets/goals-placeholder.jpg" alt="Life & Goals" id="img-goals">
             </div>
             
             <fieldset class="form-group">
@@ -651,6 +663,7 @@
                 <legend>Final Goals & Preferences</legend>
                 <div class="form-group">
                     <label for="priorities">Your top 3 goals for the next 30 days <span class="req">*</span></label>
+                    <p class="hint-text">1. Stabilize housing | 2. Obtain ID | 3. Secure employment</p>
                     <textarea name="priorities" id="priorities" rows="3" required aria-required="true"></textarea>
                 </div>
                 <label>How often do you want us to check in?</label>
@@ -668,7 +681,7 @@
                     <label><input type="radio" name="commpref" value="Email"> Email</label>
                     <label><input type="radio" name="commpref" value="Don't contact me"> Don't contact me</label>
                 </div>
-                <label style="margin-top: 2rem;">Groups you would show up to</label>
+                <label style="margin-top: 2rem;">Programs or groups you would actually show up to</label>
                 <div class="checkbox-grid">
                     <label><input type="checkbox" name="engagementTypes" value="Peer support"> Peer support</label>
                     <label><input type="checkbox" name="engagementTypes" value="Faith groups"> Faith groups</label>
