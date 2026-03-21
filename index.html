@@ -130,7 +130,7 @@
                 
                 <label for="user_email">Email</label>
                 <p class="hint-text">Required for direct delivery.</p>
-                <input type="text" name="user_email" id="user_email">
+                <input type="email" name="user_email" id="user_email">
 
                 <label for="user_phone">Phone (Optional)</label>
                 <input type="text" name="user_phone" id="user_phone">
@@ -151,8 +151,29 @@
             <input type="text" name="sexual_orientation" id="sexual_orientation">
 
             <label for="ethnicity">Ethnicity / Race</label>
-            <p class="hint-text">Includes Tribal Affiliation (crucial for specific BIA opportunities).</p>
             <input type="text" name="ethnicity" id="ethnicity">
+
+            <fieldset class="form-group">
+                <legend>Tribal Affiliation</legend>
+                <p class="hint-text">Crucial for specific BIA and Tribal-government opportunities.</p>
+                <div class="radio-options">
+                    <input type="radio" name="has_tribal" value="Yes" id="tribal-yes"> <label for="tribal-yes" style="display:inline; text-transform:none;">Yes</label>
+                    <input type="radio" name="has_tribal" value="No" id="tribal-no" checked> <label for="tribal-no" style="display:inline; text-transform:none;">No</label>
+                </div>
+                <input type="text" name="tribal_details" id="tribal_details" placeholder="State/Federal Tribe Name">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <legend>Neurodivergence & Cognitive Style</legend>
+                <p class="hint-text">Data used for 504 accommodations and specialized vocational matching.</p>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="neuro_adhd"> ADHD</label>
+                    <label><input type="checkbox" name="neuro_autism"> Autism/ASD</label>
+                    <label><input type="checkbox" name="neuro_dyslexia"> Dyslexia</label>
+                    <label><input type="checkbox" name="neuro_other"> Other</label>
+                </div>
+                <input type="text" name="neuro_details" id="neuro_details" placeholder="Additional details or support needs">
+            </fieldset>
 
             <label for="spiritual_constraints">Spiritual / Religious Constraints</label>
             <p class="hint-text">Many non-profits are faith-based; does this matter to you?</p>
@@ -162,20 +183,41 @@
             <p class="hint-text">Have you ever served your community? Do you want to? What kind of community service interests you, or have you done in the past?</p>
             <textarea name="volunteer_work" id="volunteer_work"></textarea>
 
-            <label for="veteranStatus">Veteran Status</label>
-            <input type="text" name="veteranStatus" id="veteranStatus">
+            <fieldset class="form-group">
+                <legend>Veteran Status</legend>
+                <div class="radio-options">
+                    <input type="radio" name="is_veteran" value="Yes" id="vet-yes"> <label for="vet-yes" style="display:inline; text-transform:none;">Yes</label>
+                    <input type="radio" name="is_veteran" value="No" id="vet-no" checked> <label for="vet-no" style="display:inline; text-transform:none;">No</label>
+                </div>
+                <input type="text" name="veteran_details" id="veteranStatus" placeholder="Branch / Discharge Type (Optional)">
+            </fieldset>
 
-            <label for="first_gen_student">First-Generation Student?</label>
-            <p class="hint-text">Were you the first in your family to attend college?</p>
-            <input type="text" name="first_gen_student" id="first_gen_student">
+            <fieldset class="form-group">
+                <legend>First-Generation Student?</legend>
+                <p class="hint-text">Were you the first in your family to attend college?</p>
+                <div class="radio-options">
+                    <input type="radio" name="is_first_gen" value="Yes" id="fg-yes"> <label for="fg-yes" style="display:inline; text-transform:none;">Yes</label>
+                    <input type="radio" name="is_first_gen" value="No" id="fg-no" checked> <label for="fg-no" style="display:inline; text-transform:none;">No</label>
+                </div>
+            </fieldset>
 
-            <label for="foster_care">Foster Care History?</label>
-            <p class="hint-text">Former foster youth have access to specific tuition waivers.</p>
-            <input type="text" name="foster_care" id="foster_care">
+            <fieldset class="form-group">
+                <legend>Foster Care History?</legend>
+                <p class="hint-text">Former foster youth have access to specific tuition waivers.</p>
+                <div class="radio-options">
+                    <input type="radio" name="has_foster_history" value="Yes" id="foster-yes"> <label for="foster-yes" style="display:inline; text-transform:none;">Yes</label>
+                    <input type="radio" name="has_foster_history" value="No" id="foster-no" checked> <label for="foster-no" style="display:inline; text-transform:none;">No</label>
+                </div>
+            </fieldset>
 
-            <label for="single_parent">Single Parent Status?</label>
-            <p class="hint-text">Programs exist specifically for head-of-household parents.</p>
-            <input type="text" name="single_parent" id="single_parent">
+            <fieldset class="form-group">
+                <legend>Single Parent Status?</legend>
+                <p class="hint-text">Programs exist specifically for head-of-household parents.</p>
+                <div class="radio-options">
+                    <input type="radio" name="is_single_parent" value="Yes" id="sp-yes"> <label for="sp-yes" style="display:inline; text-transform:none;">Yes</label>
+                    <input type="radio" name="is_single_parent" value="No" id="sp-no" checked> <label for="sp-no" style="display:inline; text-transform:none;">No</label>
+                </div>
+            </fieldset>
 
             <label for="documents">Documentation</label>
             <p class="hint-text">Do you hold physical copies of your ID, SSN, or Birth Cert?</p>
