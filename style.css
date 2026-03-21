@@ -78,20 +78,21 @@ label {
     width: 100%;
     background-color: var(--text-main);
     color: var(--bg-pure);
-    padding: 0.4rem 0;
+    padding: 0.5rem 0;
     font-family: var(--font-data);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     white-space: nowrap;
     overflow: hidden;
     border-bottom: 2px solid var(--accent-sovereign);
+    user-select: none;
 }
 
 .ledger-track {
     display: inline-block;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 .ledger-track span {
-    margin-right: 4rem;
+    margin-right: 6rem;
 }
 @keyframes marquee {
     0% { transform: translateX(0); }
@@ -158,20 +159,21 @@ label {
 .wizard-progress {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     border-bottom: 1px solid var(--border-clinical);
     padding-bottom: 1rem;
 }
 .progress-step {
     font-family: var(--font-data);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--border-clinical);
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 .progress-step.active {
     color: var(--accent-sovereign);
     font-weight: bold;
+    transform: scale(1.05);
 }
 .progress-step.completed {
     color: var(--text-main);
