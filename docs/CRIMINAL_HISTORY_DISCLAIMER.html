@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criminal History Disclaimer - Shane Johns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pure: #ffffff;
+            --text-main: #0f172a;
+            --accent-sovereign: #ea580c;
+            --border-clinical: #64748b;
+            --bg-mute: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .disclaimer-paper {
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 10px solid #ea580c;
+        }
+
+        header {
+            border-bottom: 3px solid var(--text-main);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sigil {
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: 4px solid var(--text-main);
+            padding: 0.3rem 1rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content-box {
+            background: var(--bg-mute);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 6px solid var(--text-main);
+        }
+
+        .record-item {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-clinical);
+        }
+
+        .record-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #b91c1c;
+        }
+
+        .record-details {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .referral-section {
+            margin-top: 50px;
+        }
+
+        .referral-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ref-card {
+            padding: 15px;
+            border: 2px solid var(--border-clinical);
+        }
+
+        .ref-name { font-weight: 700; text-transform: uppercase; display: block; }
+        .ref-role { font-size: 0.85rem; color: var(--accent-sovereign); font-weight: 700; }
+        .ref-phone { font-family: monospace; display: block; margin-top: 5px; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .disclaimer-paper { box-shadow: none; width: 100%; max-width: 100%; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="disclaimer-paper">
+        <header>
+            <h1>Criminal History Disclaimer</h1>
+            <div class="sigil">R/M</div>
+        </header>
+
+        <section class="content-box">
+            <p style="margin-bottom: 20px; font-weight: 600;">The following information is provided as a full and transparent disclosure regarding past justice involvement. These matters occurred during a specific period of hardship and have been addressed through active rehabilitative engagement and legal compliance.</p>
+
+            <div class="record-item">
+                <div class="record-title">Felony Possession of Stolen Property</div>
+                <div class="record-details">Sentenced to two years probation. Completed Drug Court and DV Educational Protocols. Currently running concurrent with misdemeanor flag.</div>
+            </div>
+
+            <div class="record-item">
+                <div class="record-title">Misdemeanor Domestic Violence Harassment (Non-Violent)</div>
+                <div class="record-details">Sentenced to two years probation. Completed specialized educational classes and behavioral protocols.</div>
+            </div>
+
+            <div class="record-item">
+                <div class="record-title">Misdemeanor Theft</div>
+                <div class="record-details">Status: Time Served. Successfully resolved.</div>
+            </div>
+
+            <div class="record-item">
+                <div class="record-title">Misdemeanor Possession</div>
+                <div class="record-details">Status: Time Served. Successfully resolved.</div>
+            </div>
+
+            <div class="record-item">
+                <div class="record-title">Misdemeanor Lying to a Peace Officer</div>
+                <div class="record-details">Status: Time Served. Successfully resolved.</div>
+            </div>
+        </section>
+
+        <section class="referral-section">
+            <h2 class="referral-title">Professional Verification & Referrals</h2>
+            <div class="ref-grid">
+                <div class="ref-card">
+                    <span class="ref-name">Asianna Nelson</span>
+                    <span class="ref-role">Probation Officer</span>
+                    <span class="ref-phone">503-846-3480</span>
+                </div>
+                <div class="ref-card">
+                    <span class="ref-name">Julia Ayles</span>
+                    <span class="ref-role">Counselor</span>
+                    <span class="ref-phone">503-648-0753</span>
+                </div>
+                <div class="ref-card" style="grid-column: span 2;">
+                    <span class="ref-name">Reggie Meisler</span>
+                    <span class="ref-role">Staff Software Engineer (Personal Reference)</span>
+                    <span class="ref-phone">415-846-8097</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
