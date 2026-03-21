@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification of Actualization - Shane Johns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pure: #ffffff;
+            --text-main: #0f172a;
+            --accent-sovereign: #ea580c;
+            --border-clinical: #64748b;
+            --bg-mute: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cert-frame {
+            background: white;
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px;
+            border: 15px solid var(--text-main);
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .cert-inner-border {
+            border: 2px solid var(--accent-sovereign);
+            padding: 40px;
+            height: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sigil {
+            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            border: 6px solid var(--text-main);
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .sub-header {
+            font-family: monospace;
+            color: var(--accent-sovereign);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .recipient-block {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .presented-to {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-main);
+            border-bottom: 4px solid var(--text-main);
+            display: inline-block;
+            padding: 0 40px;
+            margin-bottom: 20px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .milestone-category {
+            background: var(--bg-mute);
+            padding: 15px;
+            border-left: 5px solid var(--accent-sovereign);
+        }
+
+        .milestone-category h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent-sovereign);
+            margin-bottom: 10px;
+        }
+
+        .milestone-list {
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .milestone-list li::before {
+            content: "✓ ";
+            color: #10b981;
+        }
+
+        .footer-note {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .stamp {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            width: 150px;
+            height: 150px;
+            border: 5px double var(--accent-sovereign);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent-sovereign);
+            font-weight: 900;
+            text-transform: uppercase;
+            transform: rotate(-15deg);
+            opacity: 0.8;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .cert-frame { box-shadow: none; border-width: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cert-frame">
+        <div class="cert-inner-border">
+            <header>
+                <div class="sigil">R/M</div>
+                <h1>Certificate of Actualization</h1>
+                <div class="sub-header">PROVISIONAL BLUEPRINT VERIFICATION // VER: 2026.03.20</div>
+            </header>
+
+            <div class="recipient-block">
+                <p class="presented-to">This recognition is self-awarded to</p>
+                <div class="name">SHANE JOHNS</div>
+                <p style="margin-top: 20px; font-weight: 700; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    For demonstrating radical resilience, technical aptitude, and the successful navigation of complex systems to secure a foundation for future excellence.
+                </p>
+            </div>
+
+            <div class="achievement-grid">
+                <div class="milestone-category">
+                    <h3>Academic & Professional</h3>
+                    <ul class="milestone-list">
+                        <li>High School Equivalency (GED) - Acquired for Program</li>
+                        <li>GitHub Student Developer Pack - Active Tier</li>
+                        <li>Operational Synergy Leadership Methodology</li>
+                    </ul>
+                </div>
+                <div class="milestone-category">
+                    <h3>Physical & Mental Fortitude</h3>
+                    <ul class="milestone-list">
+                        <li>6 Months Continuous Sobriety (Post-High-Risk Phase)</li>
+                        <li>4 Months Daily Disciplined Physical Training</li>
+                        <li>Clinical Compliance: MAT & ADHD Protocols</li>
+                    </ul>
+                </div>
+                <div class="milestone-category">
+                    <h3>Infrastructure & Logistics</h3>
+                    <ul class="milestone-list">
+                        <li>Verified Personal Computing (Laptop/Mobile)</li>
+                        <li>Professional Uniformity (Work Boots/Formal Attire)</li>
+                        <li>Full Credentialing (State ID/Social Security Card)</li>
+                    </ul>
+                </div>
+                <div class="milestone-category">
+                    <h3>Specialized Counter-Measures</h3>
+                    <ul class="milestone-list">
+                        <li>Anti-Infrared Face Detection Disruptor Prescription</li>
+                        <li>Complex System Navigation & Problem Resolution</li>
+                        <li>Zero-Knowledge Privacy Awareness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                (I could not afford to buy the certificates and share them here, but I have completed courses I'd like to share with you... until then, here is this!)
+            </div>
+
+            <div class="stamp">
+                Verified<br>Solenya<br>Grade
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

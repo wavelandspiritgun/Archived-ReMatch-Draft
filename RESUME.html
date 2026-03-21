@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Shane Johns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pure: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-sovereign: #ea580c;
+            --border-clinical: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .resume-paper {
+            background: white;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 10px solid var(--text-main);
+            position: relative;
+        }
+
+        /* 1. Header */
+        header {
+            border-bottom: 4px solid var(--accent-sovereign);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .name-block h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* 2. Professional Profile */
+        .profile-section {
+            margin-bottom: 30px;
+            background: #f8fafc;
+            padding: 20px;
+            border-left: 5px solid var(--accent-sovereign);
+        }
+
+        .profile-section h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-sovereign);
+            margin-bottom: 10px;
+        }
+
+        .profile-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* 3. Core Competencies */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .skill-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-sovereign);
+        }
+
+        /* 4. Experience */
+        .section-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            border-bottom: 2px solid var(--text-main);
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .job-card {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .job-meta {
+            font-size: 0.9rem;
+            color: var(--accent-sovereign);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .job-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* 5. References */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            font-size: 0.8rem;
+        }
+
+        .ref-item strong { display: block; text-transform: uppercase; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .resume-paper { box-shadow: none; width: 100%; max-width: 100%; padding: 30px; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-paper">
+        <header>
+            <div class="name-block">
+                <h1>SHANE<br>JOHNS</h1>
+            </div>
+            <div class="contact-info">
+                34420 SW TV HWY, CORNELIUS, OR 97123<br>
+                TEL: 971-490-1XXX<br>
+                EMAIL: [YOUR EMAIL]
+            </div>
+        </header>
+
+        <section class="profile-section">
+            <h2>Professional Profile</h2>
+            <div class="profile-text">
+                Accomplished Culinary & Service Leader with over a decade of experience driving operational excellence through high-morale team building. Expert in staff training, kitchen management, and complex problem resolution. Driven by the principle of **Operational Synergy**: prioritizing team well-being to ensure peak performance and seamless service delivery.
+            </div>
+        </section>
+
+        <section class="section-title">Core Competencies</section>
+        <div class="skills-grid">
+            <div class="skill-item">Team Leadership & Mentorship</div>
+            <div class="skill-item">Advanced Kitchen Management</div>
+            <div class="skill-item">Conflict Resolution & De-escalation</div>
+            <div class="skill-item">Operational Training (All-Star Level)</div>
+            <div class="skill-item">Inventory & Resource Optimization</div>
+            <div class="skill-item">Safety & Compliance Standards</div>
+        </div>
+
+        <section class="section-title">Leadership Experience</section>
+
+        <div class="job-card">
+            <div class="job-header">
+                <span>Sous Chef & Operations Trainer</span>
+                <span>2017 — 2020</span>
+            </div>
+            <div class="job-meta">McMenamins Rock Creek Tavern | Hillsboro, OR</div>
+            <div class="job-description">
+                Managed high-volume kitchen operations and directed staff training protocols. Successfully increased kitchen efficiency and team morale during a 3-year tenure, ensuring consistent quality and rapid service delivery.
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <span>Captain & Traveling All-Star Trainer</span>
+                <span>2014 — 2017</span>
+            </div>
+            <div class="job-meta">MOD Pizza | Multiple Locations, OR</div>
+            <div class="job-description">
+                Selected as a traveling brand ambassador and trainer to open new locations and stabilize underperforming teams. Managed shift operations, staff morale, and customer relations across multiple territories.
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <span>Kitchen Manager & Trainer</span>
+                <span>2012 — 2014</span>
+            </div>
+            <div class="job-meta">Pizza Hut & Old Chicago | Beaverton, OR</div>
+            <div class="job-description">
+                Directed back-of-house operations, inventory management, and new hire onboarding. Focused on maintaining high standards of food safety and team performance in fast-paced environments.
+            </div>
+        </div>
+
+        <section class="section-title">Recent Service & Logistics</section>
+        <div class="job-card">
+            <div class="job-header">
+                <span>Service Lead & Logistics Attendant</span>
+                <span>2021 — 2022</span>
+            </div>
+            <div class="job-meta">Plaid Pantry, Red Robin, ARCO, 7-Eleven | Region-wide</div>
+            <div class="job-description">
+                Provided critical operational support in high-traffic retail and culinary environments. Managed cash handling, inventory intake, and customer service during a focused period of professional transition.
+            </div>
+        </div>
+
+        <section class="section-title">Professional References</section>
+        <div class="ref-grid">
+            <div class="ref-item">
+                <strong>Reginald Meisler</strong>
+                Staff Software Engineer<br>
+                Personal Ref (23 Years)
+            </div>
+            <div class="ref-item">
+                <strong>Connor Randall</strong>
+                MOD Pizza / McMenamins<br>
+                Professional Ref (14 Years)
+            </div>
+            <div class="ref-item">
+                <strong>Gage Hanna</strong>
+                McMenamins<br>
+                Professional Ref (17 Years)
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: DISCLOSURE (OPTIONAL / BACK POCKET) -->
+    <div class="resume-paper" style="margin-top: 50px; border-top: 10px solid var(--accent-sovereign);">
+        <header>
+            <div class="name-block">
+                <h1 style="font-size: 2rem;">STATEMENT OF<br>REHABILITATION</h1>
+            </div>
+        </header>
+        <section class="profile-section" style="background: #fff; border-left-color: var(--text-main);">
+            <div class="profile-text" style="font-size: 1rem;">
+                This document is provided as a transparent disclosure regarding past justice involvement. Shane Johns has actively pursued and successfully completed intensive rehabilitative programs, demonstrating a profound commitment to personal growth, community contribution, and professional reliability.
+            </div>
+        </section>
+
+        <section class="section-title">Milestones & Growth</section>
+        <div class="skills-grid" style="grid-template-columns: 1fr;">
+            <div class="skill-item">Successful completion of Drug Court & DV Educational Protocols</div>
+            <div class="skill-item">Current active supervision status with 1.5+ years of verified compliance</div>
+            <div class="skill-item">Demonstrated long-term professional stability (McMenamins, MOD Pizza)</div>
+            <div class="skill-item">Clear commitment to community-based "Pro-Social" values and team morale</div>
+        </div>
+
+        <section class="section-title">Legal Context (2026 Reference)</section>
+        <div class="job-description">
+            Shane is currently WOTC (Work Opportunity Tax Credit) eligible, providing a federal tax incentive of up to $9,600 for employers. His history reflects a past period of mental health challenges that have since been managed through dedicated treatment and ongoing support systems.
+        </div>
+    </div>
+
+</body>
+</html>

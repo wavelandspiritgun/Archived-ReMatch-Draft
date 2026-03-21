@@ -1,0 +1,153 @@
+/* 
+   RE.MATCH - Clinical Archive Overhaul
+   Task: Onboarding Logic & Wizard Navigation
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Safety Exit Protocol
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const form = document.querySelector('.protocol-wizard');
+            if (form) form.reset();
+            window.location.href = 'https://www.google.com/search?q=weather';
+        }
+    });
+
+    // Wizard Navigation State
+    let currentStep = 1;
+    const totalSteps = 4;
+    const steps = document.querySelectorAll('.wizard-step');
+    const progressIndicators = document.querySelectorAll('.progress-step');
+
+    function updateWizard() {
+        // Update Sections
+        steps.forEach((step, index) => {
+            if (index + 1 === currentStep) {
+                step.classList.remove('hidden');
+            } else {
+                step.classList.add('hidden');
+            }
+        });
+
+        // Update Progress Bar
+        progressIndicators.forEach((indicator, index) => {
+            const stepNum = index + 1;
+            indicator.classList.remove('active', 'completed');
+            if (stepNum === currentStep) {
+                indicator.classList.add('active');
+            } else if (stepNum < currentStep) {
+                indicator.classList.add('completed');
+            }
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Validate Required Fields for current step
+    function validateStep(stepIndex) {
+        const step = steps[stepIndex - 1];
+        const requiredInputs = step.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+
+        requiredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.style.borderColor = 'var(--text-error)';
+                input.style.backgroundColor = 'var(--bg-error)';
+            } else {
+                input.style.borderColor = 'var(--border-clinical)';
+                input.style.backgroundColor = 'var(--bg-mute)';
+            }
+        });
+
+        return isValid;
+    }
+
+    // Navigation Listeners
+    document.querySelectorAll('.btn-next').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateWizard();
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizard();
+            }
+        });
+    });
+
+    // Anonymous Toggle Logic
+    const anonCheckbox = document.getElementById('is_anonymous');
+    const aliasBox = document.getElementById('alias-box');
+    const fullNameInput = document.getElementById('full_name');
+
+    if (anonCheckbox && aliasBox) {
+        anonCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                aliasBox.classList.remove('hidden');
+                if (fullNameInput) fullNameInput.placeholder = "ANONYMOUS SESSION ENABLED";
+            } else {
+                aliasBox.classList.add('hidden');
+                if (fullNameInput) fullNameInput.placeholder = "First and Last Name";
+            }
+        });
+    }
+
+    // Barrier Logic
+    const barrierYesBtn = document.getElementById('barrier-yes');
+    const barrierNoBtn = document.getElementById('barrier-no');
+    const barrierDetailsBox = document.getElementById('barrier-details-box');
+
+    function checkBarrierStatus() {
+        if (barrierYesBtn && barrierYesBtn.checked) {
+            if (barrierDetailsBox) barrierDetailsBox.classList.remove('hidden');
+        } else if (barrierDetailsBox) {
+            barrierDetailsBox.classList.add('hidden');
+        }
+    }
+
+    if (barrierYesBtn && barrierNoBtn) {
+        barrierYesBtn.addEventListener('change', checkBarrierStatus);
+        barrierNoBtn.addEventListener('change', checkBarrierStatus);
+    }
+
+    // PageClip AJAX Initialization
+    const form = document.querySelector('.protocol-wizard');
+    if (form && typeof Pageclip !== 'undefined') {
+        Pageclip.form(form, {
+            onSubmit: function (event) {
+                if (!validateStep(totalSteps)) return false;
+                
+                const submitBtn = document.getElementById('submit-btn');
+                submitBtn.disabled = true;
+                const btnText = submitBtn.querySelector('.btn-text');
+                if (btnText) btnText.innerText = "SAVING TO ARCHIVE...";
+                return true; 
+            },
+            onResponse: function (error, response) {
+                if (!error) {
+                    form.classList.add('hidden');
+                    document.querySelector('.wizard-progress').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    console.error("Archive Transmission Error:", error);
+                    alert("ERROR: Information could not be saved. Please try again.");
+                    const submitBtn = document.getElementById('submit-btn');
+                    submitBtn.disabled = false;
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    if (btnText) btnText.innerText = "RE-ATTEMPT SAVE";
+                }
+            }
+        });
+    }
+});
