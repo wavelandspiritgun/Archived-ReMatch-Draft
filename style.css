@@ -1,15 +1,17 @@
 /* 
    RE.MATCH - Clinical Archive Overhaul
-   Task 1: Foundation & Base Styles
 */
 
 :root {
     /* Palette */
     --bg-pure: #ffffff;
-    --text-main: #1e293b; /* Deep Slate / Charcoal */
+    --text-main: #0f172a; /* Deeper Slate */
+    --text-muted: #475569;
     --accent-sovereign: #f97316; /* Sovereign Orange */
-    --border-clinical: #e2e8f0;
+    --border-clinical: #cbd5e1;
     --bg-mute: #f8fafc;
+    --bg-error: #fef2f2;
+    --text-error: #ef4444;
 
     /* Typography */
     --font-heading: "Inter", system-ui, -apple-system, sans-serif;
@@ -18,73 +20,258 @@
 }
 
 /* 1. CSS Reset & Base Foundation */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-    background-color: var(--bg-pure);
-}
-
-body {
+html, body {
     background-color: var(--bg-pure);
     color: var(--text-main);
     font-family: var(--font-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    padding: 0;
-    margin: 0;
+    overflow-x: hidden;
 }
 
-/* 2. Typography Definitions */
-h1, h2, h3, h4 {
+/* 2. Typography */
+h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
 }
 
-p {
-    margin-bottom: 1.25rem;
-}
+p { margin-bottom: 1rem; }
+
+.sovereign-text { color: var(--accent-sovereign); }
+.hint-text { font-family: var(--font-data); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block;}
+.warning-text { font-family: var(--font-data); font-size: 0.8rem; color: var(--text-error); font-weight: bold; margin-top: 1rem; }
+.req { color: var(--accent-sovereign); }
 
 /* Data & Input Typography */
-input, 
-textarea, 
-select, 
-button,
-code,
-.data-field {
+input[type="text"], input[type="email"], textarea, select, .data-field {
     font-family: var(--font-data);
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-mute);
+    border: 1px solid var(--border-clinical);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    transition: all 0.2s;
 }
 
-/* 3. The Archive Frame Grid */
-.archive-frame {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    gap: 2.5rem;
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-sovereign);
+    background-color: var(--bg-pure);
 }
 
-/* Utility Styles */
-.sovereign-text {
-    color: var(--accent-sovereign);
+label {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
 }
 
+/* 3. The Blueprint Ledger */
+.blueprint-ledger {
+    width: 100%;
+    background-color: var(--text-main);
+    color: var(--bg-pure);
+    padding: 0.4rem 0;
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 2px solid var(--accent-sovereign);
+}
+
+.ledger-track {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+.ledger-track span {
+    margin-right: 4rem;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 4. Safety Exit */
+.safety-exit-sign {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    padding: 10px 15px;
+    background: var(--bg-pure);
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+    z-index: 100;
+}
 .clinical-border {
     border: 1px solid var(--border-clinical);
+    position: relative;
+    padding: 1rem;
+}
+.clinical-border::before, .clinical-border::after {
+    content: '';
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--text-main);
+}
+.clinical-border::before { top: -2px; left: -2px; }
+.clinical-border::after { bottom: -2px; right: -2px; }
+
+/* 5. The Archive Frame Grid */
+.archive-frame {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.hidden {
-    display: none !important;
+.system-header {
+    margin-bottom: 3rem;
+}
+.logo-cluster {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.sigil {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    border: 2px solid var(--text-main);
+    padding: 0.2rem 0.5rem;
+    letter-spacing: -1px;
+}
+.logo-cluster h1 { margin: 0; font-size: 2rem; }
+
+.system-brief {
+    background: var(--bg-mute);
+    border-left: 3px solid var(--accent-sovereign);
 }
 
-/* Placeholder for clinical styling on existing elements */
-header, section, footer {
-    width: 100%;
+/* 6. Wizard Progress */
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-clinical);
+    padding-bottom: 1rem;
+}
+.progress-step {
+    font-family: var(--font-data);
+    font-size: 0.8rem;
+    color: var(--border-clinical);
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+.progress-step.active {
+    color: var(--accent-sovereign);
+    font-weight: bold;
+}
+.progress-step.completed {
+    color: var(--text-main);
+}
+
+/* 7. Form Steps */
+.wizard-step {
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-clinical);
+    padding-bottom: 0.5rem;
+}
+.step-header h2 { font-size: 1.25rem; color: var(--text-main); }
+.step-icon { font-family: var(--font-data); color: var(--border-clinical); }
+
+.form-group { margin-bottom: 1.5rem; }
+
+/* Checkbox & Radio */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: var(--bg-mute);
+    border: 1px solid var(--border-clinical);
+}
+.checkbox-grid label, .radio-options label {
+    font-family: var(--font-data);
+    font-size: 0.8rem;
+    text-transform: none;
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.radio-options {
+    padding: 1rem;
+    background: var(--bg-mute);
+    border: 1px solid var(--border-clinical);
+    margin-top: 0.5rem;
+}
+
+/* Buttons */
+.wizard-controls {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-clinical);
+}
+.dual-controls {
+    justify-content: space-between;
+}
+
+button {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.sovereign-btn {
+    background-color: var(--accent-sovereign);
+    color: var(--bg-pure);
+}
+.sovereign-btn:hover {
+    background-color: #ea580c;
+}
+
+.clinical-btn {
+    background-color: var(--bg-mute);
+    color: var(--text-main);
+    border: 1px solid var(--border-clinical);
+}
+.clinical-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.hidden { display: none !important; }
+
+/* Success */
+.success-box {
+    padding: 3rem;
+    text-align: center;
+    background: var(--bg-mute);
+    border-top: 4px solid var(--text-main);
 }
