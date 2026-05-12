@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Kawaii v2 // Neon Radiance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@600;800&family=Creepster&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Horror/Grit Palette (Base) */
+            --blood-dark: #070000;
+            --blood-red: #8a0303;
+            --flesh-gray: #b0a8a8;
+            --void: #020000;
+            --ash: #333333;
+
+            /* Neon Power Palette (Radiance) */
+            --neon-pink: #FF00FF;
+            --slime-green: #39FF14;
+            --electric-blue: #00FFFF;
+            --cyber-yellow: #FFFF00;
+            --hyper-white: #FFFFFF;
+
+            --cursor-x: 50vw;
+            --cursor-y: 50vh;
+            --scroll-y: 0px;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: var(--void);
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: hidden;
+            color: var(--flesh-gray);
+        }
+
+        /* SVG Noise Filter */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+
+        /* ---------------------------------------------------
+           COMMON LAYOUT (Shared between both realities)
+           --------------------------------------------------- */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10vh 5vw;
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 800;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 2rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Scroll-activated sticky section (Unbrowse style) */
+        .sticky-section {
+            display: flex;
+            height: 200vh; /* creates scroll depth */
+            position: relative;
+            margin-top: 10vh;
+        }
+
+        .sticky-content {
+            position: sticky;
+            top: 15vh;
+            height: 70vh;
+            width: 100%;
+            display: flex;
+            gap: 4rem;
+        }
+
+        .sticky-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sticky-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .code-block {
+            width: 100%;
+            padding: 2rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            border-radius: 8px;
+        }
+
+        /* Scroll reveal items */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-item.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .doc-section {
+            margin-top: 15vh;
+            padding: 4rem 0;
+            border-top: 1px solid;
+        }
+
+        h2, h3 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* ---------------------------------------------------
+           BASE LAYER: Dark, Bloody, Gritty Horror
+           --------------------------------------------------- */
+        #base-layer {
+            position: relative;
+            z-index: 1;
+        }
+
+        #base-layer .hero-title {
+            font-family: 'Creepster', cursive; /* Horror font */
+            color: var(--blood-dark);
+            text-shadow: 2px 2px 10px rgba(138, 3, 3, 0.5);
+            -webkit-text-stroke: 1px var(--blood-red);
+        }
+
+        #base-layer .hero-subtitle {
+            color: var(--ash);
+            border-left: 4px solid var(--blood-red);
+            padding-left: 1rem;
+        }
+
+        #base-layer .code-block {
+            background: #000000;
+            border: 1px solid var(--ash);
+            color: #555;
+            box-shadow: inset 0 0 20px rgba(138, 3, 3, 0.1);
+        }
+
+        #base-layer .doc-section {
+            border-top-color: var(--blood-red);
+        }
+
+        #base-layer h2 {
+            color: var(--blood-red);
+            letter-spacing: -1px;
+        }
+
+        /* ---------------------------------------------------
+           NEON LAYER: The Radiant Power (The Breach)
+           --------------------------------------------------- */
+        .neon-wrapper {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 5;
+            pointer-events: none; /* Let clicks pass to base */
+            overflow: hidden;
+            
+            /* The Soft X-Ray Peelback */
+            -webkit-mask-image: radial-gradient(
+                circle 350px at var(--cursor-x) var(--cursor-y), 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,0.8) 20%, 
+                rgba(0,0,0,0.3) 50%, 
+                transparent 100%
+            );
+            mask-image: radial-gradient(
+                circle 350px at var(--cursor-x) var(--cursor-y), 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,0.8) 20%, 
+                rgba(0,0,0,0.3) 50%, 
+                transparent 100%
+            );
+        }
+
+        #neon-content {
+            /* Syncs scroll with base layer via JS transform */
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw;
+            transform: translateY(calc(-1 * var(--scroll-y)));
+        }
+
+        /* Neon Overrides */
+        #neon-content .content-wrapper {
+            background: rgba(0, 0, 0, 0.8); /* Darkens base to make neon pop */
+            box-shadow: 0 0 100px 100px rgba(0,0,0,0.8);
+        }
+
+        #neon-content .hero-title {
+            color: var(--hyper-white);
+            text-shadow: 
+                0 0 10px var(--neon-pink),
+                0 0 20px var(--neon-pink),
+                4px 4px 0px var(--electric-blue),
+                -4px -4px 0px var(--slime-green);
+        }
+
+        #neon-content .hero-subtitle {
+            color: var(--cyber-yellow);
+            border-left: 8px solid var(--slime-green);
+            background: rgba(57, 255, 20, 0.1);
+            text-shadow: 0 0 5px var(--cyber-yellow);
+            font-weight: 700;
+        }
+
+        #neon-content .code-block {
+            background: #0a0a0a;
+            border: 2px solid var(--electric-blue);
+            color: var(--slime-green);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.4),
+                inset 0 0 15px rgba(57, 255, 20, 0.2);
+            text-shadow: 0 0 5px var(--slime-green);
+        }
+
+        #neon-content .doc-section {
+            border-top: 2px dashed var(--neon-pink);
+        }
+
+        #neon-content h2 {
+            color: var(--electric-blue);
+            text-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        #neon-content h3 {
+            color: var(--neon-pink);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+
+    <!-- Hidden source content, cloned to both layers by JS -->
+    <template id="source-content">
+        <div class="content-wrapper">
+            <section class="hero">
+                <h1 class="hero-title reveal-item">System<br>Breach</h1>
+                <p class="hero-subtitle reveal-item">
+                    The Re.Match architectural protocols. A bright, neon power source tearing through a dark, fragmented reality. Hover to reveal the active systems engine.
+                </p>
+            </section>
+
+            <section class="sticky-section">
+                <div class="sticky-content">
+                    <div class="sticky-left">
+                        <h2 class="reveal-item">1.3.0 Kinetic Engine</h2>
+                        <p class="reveal-item" style="font-size: 1.2rem; margin-bottom: 2rem;">
+                            The API layer interacts directly with the shadow DOM, mapping intake vectors without headless browser latency. This reduces execution time by a factor of 100x.
+                        </p>
+                        <h3 class="reveal-item">Capabilities:</h3>
+                        <ul class="reveal-item" style="line-height: 2;">
+                            <li>O(1) Direct Data Harvesting</li>
+                            <li>Bypass Headless Emulation</li>
+                            <li>Secure Auth-State Persistence</li>
+                            <li>Context Artifact Auto-Indexing</li>
+                        </ul>
+                    </div>
+                    <div class="sticky-right reveal-item">
+                        <div class="code-block">
+// RE.MATCH CORE //
+// INTAKE PROCESSING PIPELINE
+
+async function processDossier(intakeId) {
+  const shadowAPI = new ShadowRouter({
+    latency: 'zero',
+    bypass: true
+  });
+
+  const payload = await shadowAPI.extract({
+    target: intakeId,
+    mode: 'aggressive_harvest',
+    auth: process.env.VOID_KEY
+  });
+
+  if (!payload.isValid) {
+    throw new SystemBreachError('Target compromised');
+  }
+
+  return DossierGenerator.compile(payload);
+}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="doc-section reveal-item">
+                <h2>Appendix J: Systems Engineering Management Plan (SEMP)</h2>
+                <p>
+                    <strong>3.1 System Description:</strong> The Re.Match ecosystem is a closed-loop intelligence engine. It consumes raw, fragmented life-data (inputs) and outputs structured, highly actionable opportunity matrices (dossiers). 
+                </p>
+                <p>
+                    <strong>4.0 Technical Effort Integration:</strong> All subsystems must conform to the Cursed Kawaii structural mandate. Visual feedback must be immediate, kinetic, and violently high-contrast to combat interface fatigue.
+                </p>
+            </section>
+
+            <section class="doc-section reveal-item" style="margin-bottom: 20vh;">
+                <h2>Architectural Decision Record 004</h2>
+                <h3>Context & Problem Statement</h3>
+                <p>Traditional scraping tools introduce unacceptable latency and high token burn, limiting our ability to process opportunity data in real-time for marginalized users.</p>
+                <h3>Decision Outcome</h3>
+                <p>Chosen option: <strong>Shadow API Reverse Engineering</strong>, because it bypasses the DOM entirely, allowing direct JSON extraction at 50ms per request. This aligns with our mission of Information Poverty elimination by ensuring scalability.</p>
+            </section>
+        </div>
+    </template>
+
+    <!-- Layer 1: The Dark, Gritty Horror World -->
+    <div id="base-layer"></div>
+
+    <!-- Layer 2: The Neon Power (Masked by Cursor) -->
+    <div class="neon-wrapper" id="neon-layer">
+        <div id="neon-content"></div>
+    </div>
+
+    <script>
+        // 1. Clone content into both layers
+        const template = document.getElementById('source-content').innerHTML;
+        document.getElementById('base-layer').innerHTML = template;
+        document.getElementById('neon-content').innerHTML = template;
+
+        // 2. Soft X-Ray Cursor Tracking (The Radiant Power)
+        const neonWrapper = document.getElementById('neon-layer');
+        
+        const updateCursor = (x, y) => {
+            neonWrapper.style.setProperty('--cursor-x', `${x}px`);
+            neonWrapper.style.setProperty('--cursor-y', `${y}px`);
+        };
+
+        window.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => updateCursor(e.clientX, e.clientY));
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            requestAnimationFrame(() => updateCursor(touch.clientX, touch.clientY));
+        }, { passive: true });
+
+        // 3. Scroll Sync for Neon Layer
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                neonWrapper.style.setProperty('--scroll-y', `${window.scrollY}px`);
+            });
+        }, { passive: true });
+
+        // 4. Scroll Reveal Animations (Intersection Observer)
+        const setupObserver = () => {
+            const options = {
+                root: null,
+                rootMargin: '0px 0px -15% 0px', // Triggers when element is 15% from bottom
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, options);
+
+            // Observe elements in both layers to keep them in sync
+            document.querySelectorAll('.reveal-item').forEach(el => {
+                observer.observe(el);
+            });
+        };
+
+        // Initialize observer after a brief timeout to ensure DOM is ready
+        setTimeout(() => {
+            setupObserver();
+            // Trigger immediately for elements already in viewport
+            document.querySelectorAll('.reveal-item').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if(rect.top < window.innerHeight) {
+                    el.classList.add('is-visible');
+                }
+            });
+        }, 100);
+
+    </script>
+</body>
+</html>

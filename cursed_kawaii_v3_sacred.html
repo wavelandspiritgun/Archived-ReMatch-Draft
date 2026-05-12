@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Kawaii v3 // Sacred Geometry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #050005;
+            --blood: #660000;
+            --neon-pink: #ff0055;
+            --cyber-cyan: #00e5ff;
+            --toxic-green: #39ff14;
+            --bone: #e2dcd3;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--void);
+            color: var(--bone);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        /* ---------------------------------------------------
+           SACRED GEOMETRY BACKGROUND
+           --------------------------------------------------- */
+        .sacred-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150vw;
+            height: 150vw;
+            pointer-events: none;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.15;
+            animation: slowRotate 60s linear infinite;
+        }
+
+        .sacred-circle {
+            position: absolute;
+            border: 2px solid var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px var(--neon-pink);
+        }
+
+        .c1 { width: 40vw; height: 40vw; }
+        .c2 { width: 60vw; height: 60vw; border-color: var(--cyber-cyan); box-shadow: 0 0 20px var(--cyber-cyan); animation: counterRotate 40s linear infinite; border-style: dashed; }
+        .c3 { width: 80vw; height: 80vw; border-color: var(--toxic-green); }
+
+        .hex {
+            position: absolute;
+            width: 55vw; height: 55vw;
+            border: 1px solid var(--cyber-cyan);
+            transform: rotate(30deg);
+        }
+        .hex2 {
+            position: absolute;
+            width: 55vw; height: 55vw;
+            border: 1px solid var(--cyber-cyan);
+            transform: rotate(60deg);
+        }
+
+        @keyframes slowRotate { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes counterRotate { 100% { transform: rotate(-360deg); } }
+
+        /* ---------------------------------------------------
+           SUBLIMINAL FLASHES
+           --------------------------------------------------- */
+        .subliminal {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Syne', sans-serif;
+            font-size: 15vw;
+            font-weight: 800;
+            color: var(--blood);
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: overlay;
+            white-space: nowrap;
+        }
+
+        @keyframes flash {
+            0%, 98% { opacity: 0; }
+            99% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+            100% { opacity: 0; }
+        }
+
+        .flash-1 { animation: flash 7s infinite; }
+        .flash-2 { animation: flash 11s infinite; animation-delay: 3s; }
+        .flash-3 { animation: flash 13s infinite; animation-delay: 7s; }
+
+        /* ---------------------------------------------------
+           LIVING CONTENT
+           --------------------------------------------------- */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 10vw;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 6rem;
+            text-transform: uppercase;
+            color: var(--void);
+            text-shadow: 
+                -2px -2px 0 var(--cyber-cyan),
+                2px 2px 0 var(--neon-pink),
+                0 0 20px var(--toxic-green);
+            margin-bottom: 0;
+            animation: glitchText 3s infinite;
+        }
+
+        @keyframes glitchText {
+            0%, 95% { transform: translate(0); text-shadow: -2px -2px 0 var(--cyber-cyan), 2px 2px 0 var(--neon-pink), 0 0 20px var(--toxic-green); }
+            96% { transform: translate(-5px, 2px); text-shadow: 5px -2px 0 var(--neon-pink), -2px 2px 0 var(--cyber-cyan); }
+            97% { transform: translate(5px, -2px); text-shadow: -5px 2px 0 var(--toxic-green), 2px -2px 0 var(--neon-pink); }
+            98% { transform: translate(0); text-shadow: -2px -2px 0 var(--cyber-cyan), 2px 2px 0 var(--neon-pink), 0 0 20px var(--toxic-green); }
+        }
+
+        .glass-card {
+            background: rgba(10, 0, 10, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            border-left: 5px solid var(--neon-pink);
+            padding: 3rem;
+            margin: 4rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 0, 85, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--cyber-cyan);
+            border-left-color: var(--toxic-green);
+            box-shadow: 0 10px 40px rgba(0, 229, 255, 0.2), inset 0 0 20px rgba(57, 255, 20, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .tech-text {
+            color: var(--cyber-cyan);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .accent {
+            color: var(--neon-pink);
+            font-weight: bold;
+        }
+
+        /* Ambient glowing orb */
+        .orb {
+            position: fixed;
+            top: 20%; right: 20%;
+            width: 30vw; height: 30vw;
+            background: radial-gradient(circle, var(--blood) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.4;
+            pointer-events: none;
+            animation: pulseOrb 8s alternate infinite ease-in-out;
+        }
+
+        @keyframes pulseOrb {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.3; }
+            100% { transform: scale(1.5) translate(-10%, 10%); opacity: 0.6; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sacred Geometry Background -->
+    <div class="sacred-container">
+        <div class="sacred-circle c3"></div>
+        <div class="sacred-circle c2"></div>
+        <div class="sacred-circle c1"></div>
+        <div class="hex"></div>
+        <div class="hex2"></div>
+    </div>
+
+    <div class="orb"></div>
+
+    <!-- Subliminal Messaging -->
+    <div class="subliminal flash-1">RE.MATCH</div>
+    <div class="subliminal flash-2">AWAKEN</div>
+    <div class="subliminal flash-3">BREACH</div>
+
+    <div class="content">
+        <h1>Ritual Logic</h1>
+        <p style="color: var(--toxic-green); font-size: 1.5rem; max-width: 600px;">
+            The intersection of algorithmic purity and the blood of the real world. 
+        </p>
+
+        <div class="glass-card">
+            <h2 style="color: var(--bone); font-family: 'Syne', sans-serif;">System Architecture</h2>
+            <div class="tech-text">
+                <span class="accent">[INIT]</span> Establishing connection to the void matrix.<br>
+                The primary database does not merely store records; it <span class="accent">metabolizes</span> intake vectors. By leveraging a non-Euclidean data model mapped to human recovery trajectories, the Re.Match engine predicts cascading failures before they manifest.<br><br>
+                <span class="accent">[WARN]</span> Information poverty detected in sector 7. Deploying autonomous dossier agents.
+            </div>
+        </div>
+
+        <div class="glass-card" style="margin-left: 10vw; border-left-color: var(--cyber-cyan);">
+            <h2 style="color: var(--bone); font-family: 'Syne', sans-serif;">Theory of Change</h2>
+            <div class="tech-text" style="color: var(--toxic-green);">
+                -> Inputs: Raw, fragmented societal data. High-friction endpoints.<br>
+                -> Activities: Aggressive extraction, algorithmic empathy mapping.<br>
+                -> Outputs: Hyper-personalized, instantly actionable truth.<br>
+                -> Impact: <span style="color: var(--bone); background: var(--blood); padding: 0 5px;">Obliteration of Information Poverty.</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

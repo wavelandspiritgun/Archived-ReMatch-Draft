@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Kawaii v5 // Brutalist Kawaii</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #d3d3d3; /* Raw concrete grey */
+            --text-main: #111111;
+            --kawaii-pink: #ff66c4;
+            --kawaii-blue: #00e5ff;
+            --blood-red: #cc0000;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            /* SVG Noise for concrete texture */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* ---------------------------------------------------
+           BRUTALIST TYPOGRAPHY
+           --------------------------------------------------- */
+        .mega-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 20vw;
+            line-height: 0.8;
+            text-transform: uppercase;
+            margin: 0;
+            word-wrap: break-word;
+            mix-blend-mode: multiply;
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-main);
+        }
+
+        /* ---------------------------------------------------
+           KAWAII INTRUSIONS (Stickers & Patches)
+           --------------------------------------------------- */
+        .sticker {
+            position: absolute;
+            background: var(--kawaii-pink);
+            color: white;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 4px solid var(--text-main);
+            box-shadow: 8px 8px 0px var(--text-main);
+            transform: rotate(-15deg);
+            z-index: 10;
+            animation: pop 2s infinite alternate ease-in-out;
+        }
+
+        .sticker.blue {
+            background: var(--kawaii-blue);
+            transform: rotate(10deg);
+            top: 20vh;
+            right: 10vw;
+            animation-delay: 0.5s;
+        }
+
+        .sticker.red {
+            background: var(--blood-red);
+            transform: rotate(5deg);
+            top: 60vh;
+            left: 15vw;
+            border-radius: 0; /* brutalist shape */
+            animation-delay: 1s;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1) rotate(-15deg); }
+            100% { transform: scale(1.1) rotate(-10deg); }
+        }
+
+        /* ---------------------------------------------------
+           CHARACTER PLACEHOLDER (The "Mascot")
+           --------------------------------------------------- */
+        .mascot-container {
+            position: fixed;
+            bottom: -5vh;
+            right: 5vw;
+            width: 40vw;
+            max-width: 500px;
+            height: 60vh;
+            background-color: var(--text-main);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            box-shadow: -20px -20px 0px var(--kawaii-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .mascot-container:hover {
+            transform: translateY(-20px) scale(1.05);
+        }
+
+        .mascot-inner {
+            width: 95%;
+            height: 95%;
+            background-color: var(--bg-color);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            /* Pollinations.ai Gen API */
+            background-image: url('https://image.pollinations.ai/prompt/Hiroyuki%20Takahashi%20style,%20cybernetic%20streetwear%20anime%20character,%20vivid%20neon%20pink%20and%20toxic%20green,%20hyper%20detailed,%20anime%20horror,%20body%20horror,%20glitch%20art?width=500&height=600&nologo=true');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mascot-label {
+            background: var(--blood-red);
+            color: white;
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sticker">KAWAII // BRUTAL</div>
+    <div class="sticker blue" style="animation-name: none;">100X VELOCITY</div>
+    <div class="sticker red">NO HEADLESS</div>
+
+    <h1 class="mega-text">RE.MATCH</h1>
+    <h1 class="mega-text outline-text" style="margin-top: -10vw;">ENGINE</h1>
+
+    <div class="grid-container">
+        <div class="content-box">
+            <h2 style="font-family: 'Anton', sans-serif; font-size: 3rem; margin-top:0;">THE DOSSIER</h2>
+            <p>Raw brutalism meets high-saturation pop. We don't hide the structure; we highlight the scaffolding in neon pink. The data is the aesthetic.</p>
+        </div>
+        <div class="content-box">
+            <h2 style="font-family: 'Anton', sans-serif; font-size: 3rem; margin-top:0;">SHADOW DOM</h2>
+            <p>Extraction without limits. The system operates beneath the visual layer, bypassing conventional emulation. Pure algorithmic speed.</p>
+        </div>
+    </div>
+
+    <!-- Character Placeholder -->
+    <div class="mascot-container">
+        <div class="mascot-inner">
+            <div class="mascot-label">SUBJECT 01</div>
+        </div>
+    </div>
+
+</body>
+</html>

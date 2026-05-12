@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Kawaii // The Breach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Syne:wght@700;800&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Riff Raff / Takahashi Neon Palette */
+            --neon-pink: #FF00FF;
+            --slime-green: #39FF14;
+            --electric-blue: #00FFFF;
+            --cyber-yellow: #FFFF00;
+            --void-black: #050505;
+            --bone-white: #F0F0F0;
+            --blood-red: #8A0303;
+            
+            --cursor-x: 50vw;
+            --cursor-y: 50vh;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--void-black);
+            cursor: crosshair;
+        }
+
+        /* SVG Filters hidden from view */
+        .svg-filters {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        /* Common Layer Styles */
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        /* ---------------------------------------------------
+           BASE REALITY: Takahashi / Riff Raff / Neon Excess
+           --------------------------------------------------- */
+        .layer-base {
+            background: 
+                radial-gradient(circle at 20% 30%, var(--electric-blue) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--neon-pink) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, var(--cyber-yellow) 0%, var(--cyber-yellow) 2%, transparent 2%, transparent 10%),
+                var(--void-black);
+            color: var(--void-black);
+            z-index: 1;
+        }
+
+        .layer-base .title {
+            font-family: 'Syne', sans-serif;
+            font-size: 8vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 0.9;
+            color: var(--slime-green);
+            text-shadow: 
+                4px 4px 0px var(--neon-pink),
+                -4px -4px 0px var(--electric-blue);
+            margin: 0;
+            mix-blend-mode: hard-light;
+        }
+
+        .layer-base .subtitle {
+            font-size: 2vw;
+            font-weight: 900;
+            color: var(--void-black);
+            background: var(--cyber-yellow);
+            padding: 0.5rem 2rem;
+            border: 4px solid var(--neon-pink);
+            transform: rotate(-2deg);
+            margin-top: 1rem;
+        }
+
+        .layer-base .manifesto {
+            max-width: 800px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--bone-white);
+            background: rgba(0,0,0,0.5);
+            padding: 1rem;
+            border-left: 8px solid var(--slime-green);
+        }
+
+        /* Kinetic Marquee */
+        .marquee-container {
+            position: absolute;
+            bottom: 5vh;
+            width: 100vw;
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--neon-pink);
+            color: var(--cyber-yellow);
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            padding: 10px 0;
+            border-top: 5px solid var(--electric-blue);
+            border-bottom: 5px solid var(--electric-blue);
+            transform: rotate(2deg);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ---------------------------------------------------
+           THE BREACH: Anime Horror / Junji Ito / Eazy Mac
+           --------------------------------------------------- */
+        .layer-breach {
+            background-color: var(--bone-white);
+            /* Ink bleed/noise texture simulation */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+            z-index: 2;
+            
+            /* The X-Ray Mask */
+            clip-path: circle(150px at var(--cursor-x) var(--cursor-y));
+            
+            /* The Horror Filter */
+            filter: grayscale(100%) contrast(200%) url(#scratch-filter);
+            transition: clip-path 0.05s linear;
+            pointer-events: none; /* Let clicks pass through */
+        }
+
+        /* Horror overrides for cloned content */
+        .layer-breach .title {
+            font-family: 'Rubik Glitch', cursive;
+            color: var(--void-black);
+            text-shadow: 
+                3px 3px 0px var(--void-black),
+                -3px -3px 0px var(--void-black);
+            letter-spacing: -5px;
+        }
+
+        .layer-breach .subtitle {
+            background: var(--void-black);
+            color: var(--bone-white);
+            border: 4px solid var(--void-black);
+            transform: rotate(1deg);
+        }
+
+        .layer-breach .manifesto {
+            background: transparent;
+            color: var(--void-black);
+            border-left: 8px solid var(--void-black);
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
+        .layer-breach .marquee-container {
+            background: var(--void-black);
+            color: var(--bone-white);
+            border-top: 5px solid var(--void-black);
+            border-bottom: 5px solid var(--void-black);
+            transform: rotate(-1deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Definitions for "Scratchy Ink" filter -->
+    <svg class="svg-filters">
+        <defs>
+            <filter id="scratch-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.08 0.8" numOctaves="2" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Base Layer (Vibrant) -->
+    <div class="layer layer-base" id="base">
+        <h1 class="title">CRIMINAL<br>SUPER-STYLO</h1>
+        <div class="subtitle">AMERICAN-KAWAII // OVER-THE-TOP</div>
+        <div class="manifesto">
+            We operate in the breach. Neon-drenched consumerist fever dreams layered over dark-matter reality. Slime green swagger masking the tension underneath. You are looking at the amalgamate.
+        </div>
+        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                EXCESS AS ART ✦ THE iCON ✦ INTRODUCING THE BREACH ✦ EXCESS AS ART ✦ THE iCON ✦ INTRODUCING THE BREACH ✦ EXCESS AS ART ✦ THE iCON ✦ INTRODUCING THE BREACH ✦
+            </div>
+        </div>
+    </div>
+
+    <!-- Breach Layer (Horror) - Content will be cloned here via JS to stay perfectly synced -->
+    <div class="layer layer-breach" id="breach">
+        <!-- Cloned content goes here -->
+    </div>
+
+    <script>
+        // Clone base content into the breach layer
+        const baseContent = document.getElementById('base').innerHTML;
+        const breachLayer = document.getElementById('breach');
+        breachLayer.innerHTML = baseContent;
+
+        // X-Ray Cursor Tracking
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                breachLayer.style.setProperty('--cursor-x', e.clientX + 'px');
+                breachLayer.style.setProperty('--cursor-y', e.clientY + 'px');
+            });
+        });
+
+        // Touch support for mobile devices
+        document.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            requestAnimationFrame(() => {
+                breachLayer.style.setProperty('--cursor-x', touch.clientX + 'px');
+                breachLayer.style.setProperty('--cursor-y', touch.clientY + 'px');
+            });
+        }, { passive: true });
+    </script>
+</body>
+</html>
